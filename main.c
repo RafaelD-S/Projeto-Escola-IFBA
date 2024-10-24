@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h> // função pra atribuir nome
+#include <stdbool.h>
 #define nomeTamanho 35
 #define disciplinaQtd 50
 #define usuariosQtd 100
@@ -24,7 +25,6 @@ int main() {
 
   struct rgInfoPessoa alunos[usuariosQtd] = {0};
   struct rgInfoPessoa prof[usuariosQtd] = {0};
-  // genuinamente não sei a quantidade de disciplinas limite
   struct procedimentoMatricula disciplina[disciplinaQtd] = {0};
 
   char nome1[nomeTamanho] = "Rafael";     // Aluno
@@ -65,7 +65,7 @@ int main() {
   disciplina[0].semestre = 1;
   strcpy(disciplina[0].professor, nome3); // nome do professor 2
 
-  while (1) {
+  while (true) {
     system("clear");
     int escolha = 0;
     printf("Bem vindo ao Projeto Escola. Digite uma das seguintes opções:\n\n");
@@ -80,7 +80,7 @@ int main() {
 
     // Cadastro de alunos
     if (escolha == 1) {
-      while (1) {
+      while (true) {
         int escolhaAluno = 0;
         system("clear");
         printf("\nCADASTRO DE ALUNO");
@@ -101,7 +101,7 @@ int main() {
               break;
           }
 
-          while (1) {
+          while (true) {
             int jaTemMatricula = 0;
             system("clear");
             printf("\n\nQual a matricula do aluno?: ");
@@ -130,7 +130,7 @@ int main() {
             getchar();
           }
 
-          while (1) {
+          while (true) {
             system("clear");
             printf("\n\nQual o nome do aluno?: ");
             fgets(alunos[i].nome, 30, stdin);
@@ -150,7 +150,7 @@ int main() {
             getchar();
           }
 
-          while (1) {
+          while (true) {
             system("clear");
             printf("\n\nQual o gênero do aluno? [M / F /  N]: ");
             alunos[i].sexo = getchar();
@@ -164,7 +164,7 @@ int main() {
             getchar();
           }
 
-          while (1) {
+          while (true) {
             system("clear");
             printf("\n\nQual a data de nascimento do aluno? [DDMMAAAA]: ");
             scanf("%d", &alunos[i].dtNasc);
@@ -177,7 +177,7 @@ int main() {
             getchar();
           }
 
-          while (1) {
+          while (true) {
             system("clear");
             printf("\n\nQual o CPF do aluno?: ");
             scanf("%ld", &alunos[i].cpf);
@@ -269,7 +269,7 @@ int main() {
 
               // Escolher uma nova matricula para um aluno escolhido
               if (escolhaAtualizarAluno == 1) {
-                while (1) {
+                while (true) {
                   int jaTemMatricula = 0;
                   system("clear");
                   printf("\n\nInforme a nova matricula do aluno?: ");
@@ -302,7 +302,7 @@ int main() {
               }
               // Escolher um novo nome para um aluno escolhido
               else if (escolhaAtualizarAluno == 2) {
-                while (1) {
+                while (true) {
                   system("clear");
                   printf("\n\nInforme o novo nome: ");
                   fgets(alunos[alunoEscolhido - 1].nome, 30, stdin);
@@ -325,7 +325,7 @@ int main() {
               }
               // Escolher um novo genero para um aluno escolhido
               else if (escolhaAtualizarAluno == 3) {
-                while (1) {
+                while (true) {
                   system("clear");
                   printf("\n\nEscolha o novo gênero: ");
                   alunos[alunoEscolhido - 1].sexo = getchar();
@@ -341,7 +341,7 @@ int main() {
               }
               // Escolher uma nova data de nascimento para um aluno escolhido
               else if (escolhaAtualizarAluno == 4) {
-                while (1) {
+                while (true) {
                   system("clear");
                   printf("\n\nEscolha a nova data de nascimento: ");
                   scanf("%d", &alunos[alunoEscolhido - 1].dtNasc);
@@ -357,7 +357,7 @@ int main() {
               }
               // Escolher um novo cpf para um aluno escolhido
               else if (escolhaAtualizarAluno == 5) {
-                while (1) {
+                while (true) {
                   system("clear");
                   printf("\n\nEscolha um novo cpf: ");
                   scanf("%ld", &alunos[alunoEscolhido - 1].cpf);
@@ -379,7 +379,7 @@ int main() {
     }
     // Cadastro de professor
     else if (escolha == 2) {
-      while (1) {
+      while (true) {
         int escolhaProf = 0;
         system("clear");
         printf("\nCADASTRO DE PROFESSOR");
@@ -400,7 +400,7 @@ int main() {
               break;
           }
 
-          while (1) {
+          while (true) {
             system("clear");
             printf("\n\nQual a matricula do professor?: ");
             scanf("%d", &prof[i].matricula);
@@ -429,7 +429,7 @@ int main() {
             getchar();
           }
 
-          while (1) {
+          while (true) {
             system("clear");
             printf("\n\nQual o nome do professor?: ");
             fgets(prof[i].nome, 30, stdin);
@@ -449,7 +449,7 @@ int main() {
             getchar();
           }
 
-          while (1) {
+          while (true) {
             system("clear");
             printf("\n\nQual o gênero do professor? [M / F /  N]: ");
             prof[i].sexo = getchar();
@@ -462,7 +462,7 @@ int main() {
             getchar();
           }
 
-          while (1) {
+          while (true) {
             system("clear");
             printf("\n\nQual a data de nascimento do professor? [DDMMAAAA]: ");
             scanf("%d", &prof[i].dtNasc);
@@ -475,7 +475,7 @@ int main() {
             getchar();
           }
 
-          while (1) {
+          while (true) {
             system("clear");
             printf("\n\nQual o CPF do professor?: ");
             scanf("%ld", &prof[i].cpf);
@@ -568,7 +568,7 @@ int main() {
 
               // Escolher uma nova matricula para um professor escolhido
               if (escolhaAtualizarProf == 1) {
-                while (1) {
+                while (true) {
                   int jaTemMatricula = 0;
                   system("clear");
                   printf("\n\nInforme a nova matricula do professor?: ");
@@ -602,7 +602,7 @@ int main() {
               }
               // Escolher um novo nome para um professor escolhido
               else if (escolhaAtualizarProf == 2) {
-                while (1) {
+                while (true) {
                   system("clear");
                   printf("\n\nInforme o novo nome: ");
                   fgets(prof[profEscolhido - 1].nome, 30, stdin);
@@ -625,7 +625,7 @@ int main() {
               }
               // Escolher um novo genero para um professor escolhido
               else if (escolhaAtualizarProf == 3) {
-                while (1) {
+                while (true) {
                   system("clear");
                   printf("\n\nEscolha o novo gênero: ");
                   prof[profEscolhido - 1].sexo = getchar();
@@ -642,7 +642,7 @@ int main() {
               // Escolher uma nova data de nascimento para um professor
               // escolhido
               else if (escolhaAtualizarProf == 4) {
-                while (1) {
+                while (true) {
                   system("clear");
                   printf("\n\nEscolha a nova data de nascimento: ");
                   scanf("%d", &prof[profEscolhido - 1].dtNasc);
@@ -658,7 +658,7 @@ int main() {
               }
               // Escolher um novo cpf para um professor escolhido
               else if (escolhaAtualizarProf == 5) {
-                while (1) {
+                while (true) {
                   system("clear");
                   printf("\n\nEscolha um novo cpf: ");
                   scanf("%ld", &prof[profEscolhido - 1].cpf);
@@ -680,7 +680,7 @@ int main() {
     }
     // Cadastro de disciplina
     else if (escolha == 3) {
-      while (1) {
+      while (true) {
         int escolhaDisciplina = 0;
         system("clear");
         printf("\nCADASTRO DE DISCIPLINA");
@@ -913,7 +913,7 @@ int main() {
     }
     // Relatórios
     else if (escolha == 4) {
-      while (1) {
+      while (true) {
 
         system("clear");
         int escolhaRelatorio = 0;
