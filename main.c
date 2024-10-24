@@ -17,7 +17,7 @@ int main() {
 
   struct procedimentoMatricula {
     char nome[nomeTamanho];
-    int codigo;
+    int codigo = 0;
     int semestre;
     char professor[nomeTamanho];
   };
@@ -785,7 +785,7 @@ int main() {
             scanf("%d", &disciplinaExcluida);
             getchar();
 
-            if (disciplina[disciplinaExcluida - 1].codigo == 0) {
+            if (disciplina[disciplinaExcluida - 1].codigo == 0 || disciplinaExcluida == 0) { // código tá vazando e deixando o 0 passar, tentarei consertar no futuro
               printf("\n\nEssa disciplina não existe\n(Aperte Enter para "
                      "continuar)\n\n");
               getchar();
@@ -821,7 +821,7 @@ int main() {
             scanf("%d", &disciplinaEscolhida);
             getchar();
 
-            if (disciplina[disciplinaEscolhida - 1].codigo == 0) {
+            if (disciplina[disciplinaEscolhida - 1].codigo == 0 || disciplinaEscolhida == 0) { // código tá vazando e deixando o 0 passar, tentarei consertar no futuro
               printf("\n\nEssa disciplina não existe\n(Aperte Enter para "
                      "continuar)\n\n");
               getchar();
