@@ -713,14 +713,39 @@ int main() {
             }
           }
 
-          system("clear");
-          printf("\n\nQual o código da disciplina?: ");
-          scanf("%d", &disciplina[i].codigo);
-          getchar();
+          // verificação e cadastro do código da disciplina
+           while (true) {
+            system("clear");
+            printf("\n\nQual o código da disciplina?: ");
+            scanf("%d", &disciplina[i].codigo);
+            getchar();
+          
+            int jaTemDisciplina = 0;
+            for (int j = disciplinaQtd - 1; j >= 0; j--) {
+              if (disciplina[j].codigo == disciplina[i].codigo && i != j)
+                jaTemDisciplina = 1;
+              else {
+                continue;
+              }
+            }
+
+            if (jaTemDisciplina && disciplina[i].codigo != 0) {
+              printf("\n\nJá existe uma disciplina com esse código. Tente "
+                     "novamente. \n(Aperte Enter para continuar)\n\n");
+              getchar();
+              continue;
+            }
+
+            if (disciplina[i].codigo > 0)
+              break;
+            
+            printf("Código inválido. Tente novamente.\n(Aperte Enter para "
+                   "continuar)\n\n");
+            getchar();
+          }
 
           system("clear");
-          printf(
-              "\n\nQual o semestre da disciplina? [Insira apenas o numero]: ");
+          printf("\n\nQual o semestre da disciplina? [Insira apenas o numero]: ");
           scanf("%d", &disciplina[i].semestre);
           getchar();
 
@@ -797,6 +822,7 @@ int main() {
             }
           }
         }
+        
         // Atualizar alguma disciplina
         else if (escolhaDisciplina == 3) {
           int temDisciplina = 0;
@@ -856,10 +882,41 @@ int main() {
               }
               // Escolher um novo código para a disciplina
               else if (escolhaAtualizarDisciplina == 2) {
-                system("clear");
-                printf("Informe o novo código: ");
-                scanf("%d", &disciplina[disciplinaEscolhida - 1].codigo);
-                getchar();
+                 int i = 0;
+                 for (; i <= disciplinaQtd; i++) {
+                     if (disciplina[i].codigo == 0)
+                     break;
+                 }
+                 
+                 while (true) {
+                    system("clear");
+                    printf("\n\nQual o código da disciplina?: ");
+                    scanf("%d", &disciplina[i].codigo);
+                    getchar();
+          
+                    int jaTemDisciplina = 0;
+                    for (int j = disciplinaQtd - 1; j >= 0; j--) {
+                      if (disciplina[j].codigo == disciplina[i].codigo && i != j)
+                        jaTemDisciplina = 1;
+                      else {
+                        continue;
+                      }
+                    }
+        
+                    if (jaTemDisciplina && disciplina[i].codigo != 0) {
+                      printf("\n\nJá existe uma disciplina com esse código. Tente "
+                             "novamente. \n(Aperte Enter para continuar)\n\n");
+                      getchar();
+                      continue;
+                    }
+        
+                    if (disciplina[i].codigo > 0)
+                      break;
+                    
+                    printf("Código inválido. Tente novamente.\n(Aperte Enter para "
+                           "continuar)\n\n");
+                    getchar();
+                 }
               }
               // Escolher um novo semestre para a disciplina
               else if (escolhaAtualizarDisciplina == 3) {
