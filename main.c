@@ -102,7 +102,7 @@ int main() {
           }
 
           while (true) {
-            int jaTemMatricula = 0;
+            int jaTemMatricula = false;
             system("clear");
             printf("\n\nQual a matricula do aluno?: ");
             scanf("%d", &alunos[i].matricula);
@@ -110,7 +110,7 @@ int main() {
 
             for (int j = usuariosQtd - 1; j >= 0; j--) {
               if (alunos[j].matricula == alunos[i].matricula && i != j)
-                jaTemMatricula = 1;
+                jaTemMatricula = true;
               else {
                 continue;
               }
@@ -192,13 +192,13 @@ int main() {
         }
         // Excluir um dos alunos
         else if (escolhaAluno == 2) {
-          int temAluno = 0;
+          int temAluno = false;
           system("clear");
           for (int i = usuariosQtd - 1; i >= 0; i--) {
             if (alunos[i].matricula == 0)
               continue;
             else {
-              temAluno = 1;
+              temAluno = true;
               printf("[%d] ", i + 1);
               puts(alunos[i].nome);
             }
@@ -227,13 +227,13 @@ int main() {
         }
         // Atualizar algum aluno
         else if (escolhaAluno == 3) {
-          int temAluno = 0;
+          int temAluno = false;
           system("clear");
           for (int i = usuariosQtd - 1; i >= 0; i--) {
             if (alunos[i].matricula == 0) {
               continue;
             } else {
-              temAluno = 1;
+              temAluno = true;
               printf("[%d] ", i + 1);
               puts(alunos[i].nome);
             }
@@ -253,7 +253,7 @@ int main() {
                      "continuar)\n\n");
               getchar();
             } else {
-              int escolhaAtualizarAluno = 0;
+              int escolhaAtualizarAluno;
               system("clear");
               printf("\nQue mudança deseja fazer:\n\n");
 
@@ -270,7 +270,7 @@ int main() {
               // Escolher uma nova matricula para um aluno escolhido
               if (escolhaAtualizarAluno == 1) {
                 while (true) {
-                  int jaTemMatricula = 0;
+                  int jaTemMatricula = false;
                   system("clear");
                   printf("\n\nInforme a nova matricula do aluno?: ");
                   scanf("%d", &alunos[alunoEscolhido - 1].matricula);
@@ -280,7 +280,7 @@ int main() {
                     if (alunos[j].matricula ==
                             alunos[alunoEscolhido - 1].matricula &&
                         alunoEscolhido - 1 != j)
-                      jaTemMatricula = 1;
+                      jaTemMatricula = true;
                     else {
                       continue;
                     }
@@ -406,10 +406,10 @@ int main() {
             scanf("%d", &prof[i].matricula);
             getchar();
 
-            int jaTemMatricula = 0;
+            int jaTemMatricula = false;
             for (int j = usuariosQtd - 1; j >= 0; j--) {
               if (prof[j].matricula == prof[i].matricula && i != j)
-                jaTemMatricula = 1;
+                jaTemMatricula = true;
               else {
                 continue;
               }
@@ -490,13 +490,13 @@ int main() {
         }
         // Excluir um dos professores
         else if (escolhaProf == 2) {
-          int temProf = 0;
+          int temProf = false;
           system("clear");
           for (int i = usuariosQtd - 1; i >= 0; i--) {
             if (prof[i].matricula == 0)
               continue;
             else {
-              temProf = 1;
+              temProf = true;
               printf("[%d] ", i + 1);
               puts(prof[i].nome);
             }
@@ -526,13 +526,13 @@ int main() {
         }
         // Atualizar algum professor
         else if (escolhaProf == 3) {
-          int temProf = 0;
+          int temProf = false;
           system("clear");
           for (int i = usuariosQtd - 1; i >= 0; i--) {
             if (prof[i].matricula == 0) {
               continue;
             } else {
-              temProf = 1;
+              temProf = true;
               printf("[%d] ", i + 1);
               puts(prof[i].nome);
             }
@@ -552,7 +552,7 @@ int main() {
                      "continuar)\n\n");
               getchar();
             } else {
-              int escolhaAtualizarProf = 0;
+              int escolhaAtualizarProf;
               system("clear");
               printf("\nQue mudança deseja fazer:\n\n");
 
@@ -569,7 +569,7 @@ int main() {
               // Escolher uma nova matricula para um professor escolhido
               if (escolhaAtualizarProf == 1) {
                 while (true) {
-                  int jaTemMatricula = 0;
+                  int jaTemMatricula = false;
                   system("clear");
                   printf("\n\nInforme a nova matricula do professor?: ");
                   scanf("%d", &prof[profEscolhido - 1].matricula);
@@ -579,7 +579,7 @@ int main() {
                     if (prof[j].matricula ==
                             prof[profEscolhido - 1].matricula &&
                         profEscolhido - 1 != j)
-                      jaTemMatricula = 1;
+                      jaTemMatricula = true;
                     else {
                       continue;
                     }
@@ -639,8 +639,7 @@ int main() {
                   getchar();
                 }
               }
-              // Escolher uma nova data de nascimento para um professor
-              // escolhido
+              // Escolher uma nova data de nascimento para um professor escolhido
               else if (escolhaAtualizarProf == 4) {
                 while (true) {
                   system("clear");
@@ -681,7 +680,7 @@ int main() {
     // Cadastro de disciplina
     else if (escolha == 3) {
       while (true) {
-        int escolhaDisciplina = 0;
+        int escolhaDisciplina;
         system("clear");
         printf("\nCADASTRO DE DISCIPLINA");
         printf("\nEscolha o que deseja fazer:\n\n");
@@ -720,10 +719,10 @@ int main() {
             scanf("%d", &disciplina[i].codigo);
             getchar();
           
-            int jaTemDisciplina = 0;
+            int jaTemDisciplina = false;
             for (int j = disciplinaQtd - 1; j >= 0; j--) {
               if (disciplina[j].codigo == disciplina[i].codigo && i != j)
-                jaTemDisciplina = 1;
+                jaTemDisciplina = true;
               else {
                 continue;
               }
@@ -751,12 +750,12 @@ int main() {
 
           // Cadastro do professor na disciplina
           system("clear");
-          int temProf = 0;
+          int temProf = false;
           for (int j = usuariosQtd - 1; j >= 0; j--) {
             if (prof[j].matricula == 0) {
               continue;
             } else {
-              temProf = 1;
+              temProf = true;
               printf("[%d] ", j + 1);
               puts(prof[j].nome);
             }
@@ -787,13 +786,13 @@ int main() {
 
         // Excluir uma disciplina existente
         else if (escolhaDisciplina == 2) {
-          int temDisciplina = 0;
+          int temDisciplina = false;
           system("clear");
           for (int i = disciplinaQtd - 1; i >= 0; i--) {
             if (disciplina[i].codigo == 0)
               continue;
             else {
-              temDisciplina = 1;
+              temDisciplina = true;
               printf("[%d] ", i + 1);
               puts(disciplina[i].nome);
             }
@@ -825,13 +824,13 @@ int main() {
         
         // Atualizar alguma disciplina
         else if (escolhaDisciplina == 3) {
-          int temDisciplina = 0;
+          int temDisciplina = false;
           system("clear");
           for (int i = disciplinaQtd - 1; i >= 0; i--) {
             if (disciplina[i].codigo == 0)
               continue;
             else {
-              temDisciplina = 1;
+              temDisciplina = true;
               printf("[%d] ", i + 1);
               puts(disciplina[i].nome);
             }
@@ -852,7 +851,7 @@ int main() {
                      "continuar)\n\n");
               getchar();
             } else {
-              int escolhaAtualizarDisciplina = 0;
+              int escolhaAtualizarDisciplina;
               system("clear");
               printf("\nQue mudança deseja fazer:\n\n");
 
@@ -894,10 +893,10 @@ int main() {
                     scanf("%d", &disciplina[i].codigo);
                     getchar();
           
-                    int jaTemDisciplina = 0;
+                    int jaTemDisciplina = false;
                     for (int j = disciplinaQtd - 1; j >= 0; j--) {
                       if (disciplina[j].codigo == disciplina[i].codigo && i != j)
-                        jaTemDisciplina = 1;
+                        jaTemDisciplina = true;
                       else {
                         continue;
                       }
@@ -928,12 +927,12 @@ int main() {
               // Escolher um novo nome para o professor da disciplina
               else if (escolhaAtualizarDisciplina == 4) {
                 system("clear");
-                int temProf = 0;
+                int temProf = false;
                 for (int j = usuariosQtd - 1; j >= 0; j--) {
                   if (prof[j].matricula == 0) {
                     continue;
                   } else {
-                    temProf = 1;
+                    temProf = true;
                     printf("[%d] ", j + 1);
                     puts(prof[j].nome);
                   }
@@ -973,7 +972,7 @@ int main() {
       while (true) {
 
         system("clear");
-        int escolhaRelatorio = 0;
+        int escolhaRelatorio;
         printf("\nRELATÓRIO");
         printf("\nDigite uma das seguintes opções:\n\n");
         printf("[1] - Listar todos os alunos\n");             // Rafael X
@@ -1000,13 +999,13 @@ int main() {
 
         // Listar todos os alunos
         if (escolhaRelatorio == 1) {
-          int temAluno = 0;
+          int temAluno = false;
           system("clear");
           for (int i = usuariosQtd - 1; i >= 0; i--) {
             if (alunos[i].matricula == 0)
               continue;
             else {
-              temAluno = 1;
+              temAluno = true;
               printf("[%d] ", i + 1);
               puts(alunos[i].nome);
             }
@@ -1022,13 +1021,13 @@ int main() {
         }
         // Listar todos os professores
         else if (escolhaRelatorio == 2) {
-          int temProfessor = 0;
+          int temProfessor = false;
           system("clear");
           for (int i = usuariosQtd - 1; i >= 0; i--) {
             if (prof[i].matricula == 0)
               continue;
             else {
-              temProfessor = 1;
+              temProfessor = true;
               printf("[%d] ", i + 1);
               puts(prof[i].nome);
             }
@@ -1111,12 +1110,12 @@ int main() {
         // Listar professores por gênero
         else if (escolhaRelatorio == 8) {
           system("clear");
-          int temProfessor = 0;
+          int temProfessor = false;
           for (int i = usuariosQtd - 1; i >= 0; i--) {
             if (prof[i].matricula == 0)
               continue;
             else {
-              temProfessor = 1;
+              temProfessor = true;
             }
           }
 
