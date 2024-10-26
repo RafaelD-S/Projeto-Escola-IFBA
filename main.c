@@ -743,10 +743,20 @@ int main() {
             getchar();
           }
 
-          system("clear");
-          printf("\n\nQual o semestre da disciplina? [Insira apenas o numero]: ");
-          scanf("%d", &disciplina[i].semestre);
-          getchar();
+          // verificação e cadastro do semestre
+          while (true) {
+            system("clear");
+            printf("\n\nQual o semestre da disciplina? [Insira apenas o numero]: ");
+            scanf("%d", &disciplina[i].semestre);
+            getchar();
+ 
+            if (disciplina[i].semestre > 0)
+              break;
+            printf("Semestre inválido. Tente novamente.\n(Aperte Enter para "
+                   "continuar)\n\n");
+            getchar();
+          }
+
 
           // Cadastro do professor na disciplina
           system("clear");
@@ -919,10 +929,19 @@ int main() {
               }
               // Escolher um novo semestre para a disciplina
               else if (escolhaAtualizarDisciplina == 3) {
+                while (true) {
                 system("clear");
                 printf("Informe o novo semestre [Insira apenas numeros]: ");
                 scanf("%d", &disciplina[disciplinaEscolhida - 1].semestre);
                 getchar();
+ 
+                  if (disciplina[disciplinaEscolhida - 1].semestre > 0)
+                    break;
+                  printf("Semestre inválido. Tente novamente.\n(Aperte Enter para "
+                         "continuar)\n\n");
+                  getchar();
+                }
+
               }
               // Escolher um novo nome para o professor da disciplina
               else if (escolhaAtualizarDisciplina == 4) {
