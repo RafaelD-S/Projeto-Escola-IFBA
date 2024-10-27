@@ -1073,17 +1073,19 @@ int main() {
 
             else {
               temDisciplina = true;
-              printf("[%d] ", i + 1);
               puts(disciplina[i].nome);
+              printf("- código: %d\n- semestre: %d\n- professor:", disciplina[i].codigo, disciplina[i].semestre);
+              puts(disciplina[i].professor);
+              printf("\n\n");
             }
           }
 
           if (!temDisciplina) {
-            printf("\n\nNÃO HÁ DISCIPLINAS DISPONÍVEIS\n(Aperte Enter para continuar)\n\n");
+            printf("NÃO HÁ DISCIPLINAS DISPONÍVEIS\n(Aperte Enter para continuar)\n\n");
             getchar();
           }
 
-          printf("\n\nDisciplinas listadas com sucessos\n(Aperte Enter para continuar)\n\n");
+          printf("Disciplinas listadas com sucessos\n(Aperte Enter para continuar)\n\n");
           getchar();
         }
         // Listar uma disciplina com detalhes
