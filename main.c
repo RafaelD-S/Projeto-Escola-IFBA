@@ -1065,7 +1065,26 @@ int main() {
         }
         // Listar todas as disciplinas
         else if (escolhaRelatorio == 3) {
-          printf("%d", escolhaRelatorio);
+          int temDisciplina = false;
+          system("clear");
+          for (int i = 0; i < disciplinaQtd; i++) {
+            if (disciplina[i].codigo == 0)
+              continue;
+
+            else {
+              temDisciplina = true;
+              printf("[%d] ", i + 1);
+              puts(disciplina[i].nome);
+            }
+          }
+
+          if (!temDisciplina) {
+            printf("\n\nNÃO HÁ DISCIPLINAS DISPONÍVEIS\n(Aperte Enter para continuar)\n\n");
+            getchar();
+          }
+
+          printf("\n\nDisciplinas listadas com sucessos\n(Aperte Enter para continuar)\n\n");
+          getchar();
         }
         // Listar uma disciplina com detalhes
         else if (escolhaRelatorio == 4) {
