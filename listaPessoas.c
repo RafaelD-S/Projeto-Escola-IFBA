@@ -2,18 +2,18 @@
 
 int listaPessoas(rgInfoPessoa *pessoasLista) {
 
-  int temAluno = false;
+  int temPessoa = false;
   system("clear");
   for (int i = usuariosQtd - 1; i >= 0; i--) {
     if (pessoasLista[i].matricula == 0)
       continue;
 
     else {
-      temAluno = true;
+      temPessoa = true;
       printf("[%d] ", i + 1);
       puts(pessoasLista[i].nome);
     }
   }
 
-  return temAluno;
+  return temPessoa;
 }

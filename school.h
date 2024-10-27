@@ -17,13 +17,14 @@ typedef struct {
   long int cpf;
 } rgInfoPessoa;
 
-typedef struct {
-    char nome[nomeTamanho];
-    int codigo = 0;
-    int semestre;
-    char professor[nomeTamanho];
-} procedimentoMatricula
+struct procedimentoMatricula {
+  char nome[nomeTamanho];
+  int codigo;
+  int semestre;
+  char professor[nomeTamanho];
+};
 
-int listaPessoas(rgInfoPessoa* pessoasLista);
+int listaPessoas(rgInfoPessoa *pessoasLista);
+int listarOpcoes(const char **opcao, int opcaoQtd);
 
 #endif

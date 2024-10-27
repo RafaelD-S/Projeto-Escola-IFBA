@@ -52,32 +52,27 @@ int main() {
 
   while (true) {
     system("clear");
-    int escolha = 0;
-    printf("Bem vindo ao Projeto Escola. Digite uma das seguintes opções:\n\n");
-    printf("[1] - Cadastro de Alunos\n");
-    printf("[2] - Cadastro de Professores\n");
-    printf("[3] - Cadastro de Disciplinas\n");
-    printf("[4] - Relatórios\n");
-    printf("\nInsira qualquer outra tecla para finalizar\n");
-    printf("\n=> ");
-    scanf("%d", &escolha);
-    getchar();
+    printf("Bem vindo ao Projeto Escola. Digite uma das seguintes opções:");
+    const char *opcoes[] = {
+        "Cadastro de Alunos",
+        "Cadastro de Professores",
+        "Cadastro de Disciplinas",
+        "Relatório"
+    };
+    int escolha = listarOpcoes(opcoes, 4);
 
     // Cadastro de alunos
     if (escolha == 1) {
       while (true) {
-        int escolhaAluno = 0;
         system("clear");
         printf("\nCADASTRO DE ALUNO");
-        printf("\nEscolha o que deseja fazer:\n\n");
-        printf("[1] - Incluir um novo aluno\n");
-        printf("[2] - Exluir um aluno\n");
-        printf("[3] - Atualizar algum aluno\n");
-        printf("\nInsira qualquer outra tecla para voltar\n");
-        printf("\n=> ");
-        scanf("%d", &escolhaAluno);
-        getchar();
-
+        const char *opcoes[] = {
+            "Incluir um novo aluno",
+            "Excluir um aluno",
+            "Atualizar algum aluno"
+        };
+        int escolhaAluno = listarOpcoes(opcoes, 3);
+        
         // Adionar um novo aluno
         if (escolhaAluno == 1) {
           int i = 0;
@@ -210,19 +205,16 @@ int main() {
               getchar();
             } 
             else {
-              int escolhaAtualizarAluno;
-
               system("clear");
-              printf("\nQue mudança deseja fazer:\n\n");
-              printf("[1] - Mudar a matrícula\n");
-              printf("[2] - Mudar o nome\n");
-              printf("[3] - Mudar o gênero\n");
-              printf("[4] - Mudar a data de nascimento\n");
-              printf("[5] - Mudar o CPF\n");
-              printf("\nInsira qualquer outra tecla para voltar\n");
-              printf("\n=> ");
-              scanf("%d", &escolhaAtualizarAluno);
-              getchar();
+              printf("CADASTRO DE ALUNO\n");
+              const char *opcoes[] = {
+                  "Mudar a matrícula",
+                  "Mudar o nome",
+                  "Mudar o gênero",
+                  "Mudar a data de nascimento",
+                  "Mudar o CPF"
+              };
+              int escolhaAtualizarAluno = listarOpcoes(opcoes, 5);
 
               // Escolher uma nova matricula para um aluno escolhido
               if (escolhaAtualizarAluno == 1) {
@@ -283,7 +275,9 @@ int main() {
                   printf("\n\nEscolha o novo gênero: ");
                   alunos[alunoEscolhido - 1].sexo = getchar();
 
-                  if (alunos[alunoEscolhido - 1].sexo == 'M' || alunos[alunoEscolhido - 1].sexo == 'F' || alunos[alunoEscolhido - 1].sexo == 'N')
+                  if (alunos[alunoEscolhido - 1].sexo == 'M' ||
+                      alunos[alunoEscolhido - 1].sexo == 'F' || 
+                      alunos[alunoEscolhido - 1].sexo == 'N')
                     break;
 
                   printf("Gênero inválido. Tente novamente.\n(Aperte Enter para continuar)\n\n");
@@ -330,17 +324,15 @@ int main() {
     // Cadastro de professor
     else if (escolha == 2) {
       while (true) {
-        int escolhaProf = 0;
+        
         system("clear");
-        printf("\nCADASTRO DE PROFESSOR");
-        printf("\nEscolha o que deseja fazer:\n\n");
-        printf("[1] - Incluir um novo professor\n");
-        printf("[2] - Exluir um professor\n");
-        printf("[3] - Atualizar algum professor\n");
-        printf("\nInsira qualquer outra tecla para voltar\n");
-        printf("\n=> ");
-        scanf("%d", &escolhaProf);
-        getchar();
+        printf("CADASTRO DE PROFESSOR\n");
+        const char *opcoes[] = {
+          "Incluir um novo professor",
+          "Exluir um professor",
+          "Atualizar algum professor"
+        };
+        int escolhaProf = listarOpcoes(opcoes, 3);
 
         // Adionar um novo professor
         if (escolhaProf == 1) {
@@ -473,19 +465,17 @@ int main() {
               getchar();
             } 
             else {
-              int escolhaAtualizarProf;
-              system("clear");
-              printf("\nQue mudança deseja fazer:\n\n");
 
-              printf("[1] - Mudar a matrícula\n");
-              printf("[2] - Mudar o nome\n");
-              printf("[3] - Mudar o gênero\n");
-              printf("[4] - Mudar a data de nascimento\n");
-              printf("[5] - Mudar o CPF\n");
-              printf("\nInsira qualquer outra tecla para voltar\n");
-              printf("\n=> ");
-              scanf("%d", &escolhaAtualizarProf);
-              getchar();
+              system("clear");
+              printf("Que mudança deseja fazer\n");
+              const char *opcoes[] = {
+                "Mudar a matrícula",
+                "Mudar o nome",
+                "Mudar o gênero",
+                "Mudar a data de nascimento",
+                "Mudar o CPF"
+              };
+              int escolhaAtualizarProf = listarOpcoes(opcoes, 5);
 
               // Escolher uma nova matricula para um professor escolhido
               if (escolhaAtualizarProf == 1) {
@@ -593,17 +583,14 @@ int main() {
     // Cadastro de disciplina
     else if (escolha == 3) {
       while (true) {
-        int escolhaDisciplina;
         system("clear");
-        printf("\nCADASTRO DE DISCIPLINA");
-        printf("\nEscolha o que deseja fazer:\n\n");
-        printf("[1] - Incluir uma nova disciplina\n");
-        printf("[2] - Exluir uma disciplina\n");
-        printf("[3] - Atualizar alguma disciplina\n");
-        printf("\nInsira qualquer outra tecla para voltar\n");
-        printf("\n=> ");
-        scanf("%d", &escolhaDisciplina);
-        getchar();
+        printf("CADASTRO DE DISCIPLINA\n");
+        const char *opcoes[] = {
+          "Incluir uma nova disciplina",
+          "Exluir uma disciplina",
+          "Atualizar alguma disciplina"
+        };
+        int escolhaDisciplina = listarOpcoes(opcoes, 3);;
 
         // Cadastro de uma nova disciplina
         if (escolhaDisciplina == 1) {
@@ -618,7 +605,7 @@ int main() {
             system("clear");
             printf("\n\nQual o nome da disciplina?: ");
             fgets(disciplina[i].nome, 30, stdin);
-  
+
             // Capitalização da Disciplina
             for (int j = 97; j < 122; j++) {
               if (disciplina[i].nome[0] == j) {
@@ -626,10 +613,10 @@ int main() {
                 break;
               }
             }              
-              
+
             if (strlen(disciplina[i].nome) > 1)
               break;
-            
+
             printf("Nome inválido. Tente novamente. \n(Aperte Enter para continuar)\n\n");
             getchar();              
           }
@@ -640,7 +627,7 @@ int main() {
             printf("\n\nQual o código da disciplina?: ");
             scanf("%d", &disciplina[i].codigo);
             getchar();
-          
+
             int jaTemDisciplina = false;
             for (int j = disciplinaQtd - 1; j >= 0; j--) {
               if (disciplina[j].codigo == disciplina[i].codigo && i != j)
@@ -658,7 +645,7 @@ int main() {
 
             if (disciplina[i].codigo > 0)
               break;
-            
+
             printf("Código inválido. Tente novamente.\n(Aperte Enter para continuar)\n\n");
             getchar();
           }
@@ -669,7 +656,7 @@ int main() {
             printf("\n\nQual o semestre da disciplina? [Insira apenas o numero]: ");
             scanf("%d", &disciplina[i].semestre);
             getchar();
- 
+
             if (disciplina[i].semestre > 0)
               break;
 
@@ -781,18 +768,15 @@ int main() {
               getchar();
             } 
             else {
-              int escolhaAtualizarDisciplina;
               system("clear");
-              printf("\nQue mudança deseja fazer:\n\n");
-
-              printf("[1] - Mudar o nome\n");
-              printf("[2] - Mudar o código\n");
-              printf("[3] - Mudar o semestre\n");
-              printf("[4] - Mudar o nome do professor\n");
-              printf("\nInsira qualquer outra tecla para voltar\n");
-              printf("\n=> ");
-              scanf("%d", &escolhaAtualizarDisciplina);
-              getchar();
+              printf("Que mudança deseja fazer\n");
+              const char *opcoes[] = {
+                "Mudar o nome",
+                "Mudar o código",
+                "Mudar o semestre" 
+                "Mudar o nome do professor",
+              };
+              int escolhaAtualizarDisciplina = listarOpcoes(opcoes, 4);;
 
               // Escolher um novo nome para uma disciplina
               if (escolhaAtualizarDisciplina == 1) {
@@ -800,7 +784,7 @@ int main() {
                   system("clear");
                   printf("Informe o novo nome para a disciplina: ");
                   fgets(disciplina[disciplinaEscolhida - 1].nome, 30, stdin);
-        
+
                   // Capitalização da Disciplina
                   for (int j = 97; j < 122; j++) {
                     if (disciplina[disciplinaEscolhida - 1].nome[0] == j) {
@@ -808,10 +792,10 @@ int main() {
                       break;
                     }
                   }            
-                    
+
                   if (strlen(disciplina[disciplinaEscolhida - 1].nome) > 1)
                     break;
-                  
+
                   printf("Nome inválido. Tente novamente. \n(Aperte Enter para continuar)\n\n");
                   getchar();              
                 }                
@@ -823,7 +807,7 @@ int main() {
                   printf("\n\nQual o código da disciplina?: ");
                   scanf("%d", &disciplina[disciplinaEscolhida - 1].codigo);
                   getchar();
-        
+
                   int jaTemDisciplina = false;
                   for (int j = disciplinaQtd - 1; j >= 0; j--) {
                     if (disciplina[j].codigo == disciplina[disciplinaEscolhida - 1].codigo && disciplinaEscolhida - 1 != j)
@@ -833,16 +817,16 @@ int main() {
                       continue;
                     }
                   }
-      
+
                   if (jaTemDisciplina && disciplina[disciplinaEscolhida - 1].codigo != 0) {
                     printf("\n\nJá existe uma disciplina com esse código. Tente novamente. \n(Aperte Enter para continuar)\n\n");
                     getchar();
                     continue;
                   }
-      
+
                   if (disciplina[disciplinaEscolhida - 1].codigo > 0)
                     break;
-                  
+
                   printf("Código inválido. Tente novamente.\n(Aperte Enter para continuar)\n\n");
                   getchar();
                 }
@@ -854,10 +838,10 @@ int main() {
                   printf("Informe o novo semestre [Insira apenas numeros]: ");
                   scanf("%d", &disciplina[disciplinaEscolhida - 1].semestre);
                   getchar();
- 
+
                   if (disciplina[disciplinaEscolhida - 1].semestre > 0)
                     break;
-                  
+
                   printf("Semestre inválido. Tente novamente.\n(Aperte Enter para continuar)\n\n");
                   getchar();
                 }
@@ -871,7 +855,7 @@ int main() {
                   for (int j = usuariosQtd - 1; j >= 0; j--) {
                     if (prof[j].matricula == 0)
                       continue;
-                    
+
                     else {
                       temProf = true;
                       printf("[%d] ", j + 1);
@@ -912,28 +896,25 @@ int main() {
     // Relatórios
     else if (escolha == 4) {
       while (true) {
-        int escolhaRelatorio;
         system("clear");
-        printf("\nRELATÓRIO");
-        printf("\nDigite uma das seguintes opções:\n\n");
-        printf("[1] - Listar todos os alunos\n");             // Rafael X
-        printf("[2] - Listar todos os professores\n");        // Rafael X
-        printf("[3] - Listar todas as disciplinas\n");        // Luana
-        printf("[4] - Listar uma disciplina com detalhes\n"); // Luana
-        printf("[5] - Listar alunos por gênero\n");           // Rafael X
-        printf("[6] - Listar alunos ordenados por nome\n");   // Rafael
-        printf("[7] - Listar alunos ordenados por data de nascimento\n"); // Rafael
-        printf("[8] - Listar professores por gênero\n");               // Rafael X
-        printf("[9] - Listar professores ordenados por nome\n");       // Rafael
-        printf("[10] - Listar professores ordenados por data de nascimento\n"); // Rafael
-        printf("[11] - Listar aniversariantes do mês\n"); // Luana
-        printf("[12] - Pesquisar pesssoas\n");            // Rafael
-        printf("[13] - Listar alunos matriculados em menos de 3 disciplinas\n"); // Luana
-        printf("[14] - Listar disciplinas que extrapolam 40 vagas\n"); // Luana
-        printf("\nInsira qualquer outra tecla para finalizar\n");
-        printf("\n=> ");
-        scanf("%d", &escolhaRelatorio);
-        getchar();
+        printf("\nRELATÓRIOS");
+        const char *opcoesRelatorio[] = {
+            "Listar todos os alunos",                          // Rafael X
+            "Listar todos os professores",                     // Rafael X
+            "Listar todas as disciplinas",                     // Luana
+            "Listar uma disciplina com detalhes",              // Luana
+            "Listar alunos por gênero",                        // Rafael X
+            "Listar alunos ordenados por nome",                // Rafael
+            "Listar alunos ordenados por data de nascimento",  // Rafael
+            "Listar professores por gênero",                   // Rafael X
+            "Listar professores ordenados por nome",           // Rafael
+            "Listar professores ordenados por data de nascimento", // Rafael
+            "Listar aniversariantes do mês",                   // Luana
+            "Pesquisar pessoas",                               // Rafael
+            "Listar alunos matriculados em menos de 3 disciplinas", // Luana
+            "Listar disciplinas que extrapolam 40 vagas"       // Luana
+        };
+        int escolhaRelatorio = listarOpcoes(opcoesRelatorio, 14);
 
         // Listar todos os alunos
         if (escolhaRelatorio == 1) {
@@ -1040,7 +1021,7 @@ int main() {
             for (int i = usuariosQtd - 1; i >= 0; i--) {
               if (prof[i].matricula == 0)
                 continue;
-              
+
               else if (prof[i].sexo == 'M') {
                 printf("\n- ");
                 puts(prof[i].nome);
@@ -1051,7 +1032,7 @@ int main() {
             for (int i = usuariosQtd - 1; i >= 0; i--) {
               if (prof[i].matricula == 0)
                 continue;
-              
+
               else if (prof[i].sexo == 'F') {
                 printf("\n- ");
                 puts(prof[i].nome);
@@ -1062,7 +1043,7 @@ int main() {
             for (int i = usuariosQtd - 1; i >= 0; i--) {
               if (prof[i].matricula == 0)
                 continue;
-              
+
               else if (prof[i].sexo == 'N') {
                 printf("\n-");
                 puts(prof[i].nome);
@@ -1104,7 +1085,8 @@ int main() {
       }
     } 
     else {
-      printf("Finalizado");
+      system("clear");
+      printf("FINALIZADO");
       break;
     }
   }
