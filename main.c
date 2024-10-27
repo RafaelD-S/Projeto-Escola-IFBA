@@ -1,30 +1,9 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h> // função pra atribuir nome
-#include <stdbool.h>
-#define nomeTamanho 35
-#define disciplinaQtd 50
-#define usuariosQtd 100
+#include "school.h"
 
 int main() {
 
-  struct rgInfoPessoa {
-    int matricula;
-    char nome[nomeTamanho];
-    char sexo;
-    int dtNasc;
-    long int cpf;
-  };
-
-  struct procedimentoMatricula {
-    char nome[nomeTamanho];
-    int codigo = 0;
-    int semestre;
-    char professor[nomeTamanho];
-  };
-
-  struct rgInfoPessoa alunos[usuariosQtd] = {0};
-  struct rgInfoPessoa prof[usuariosQtd] = {0};
+  rgInfoPessoa alunos[usuariosQtd] = {0};
+  rgInfoPessoa prof[usuariosQtd] = {0};
   struct procedimentoMatricula disciplina[disciplinaQtd] = {0};
 
   char nome1[nomeTamanho] = "Rafael";     // Aluno
@@ -196,63 +175,31 @@ int main() {
         }
         // Excluir um dos alunos
         else if (escolhaAluno == 2) {
-          int temAluno = false;
-          system("clear");
-
-          for (int i = usuariosQtd - 1; i >= 0; i--) {
-            if (alunos[i].matricula == 0)
-              continue;
-
-            else {
-              temAluno = true;
-              printf("[%d] ", i + 1);
-              puts(alunos[i].nome);
-            }
-          }
-
-          if (!temAluno) {
-            printf("\n\nNÃO HÁ ALUNOS PARA EXCLUIR\n(Aperte Enter para continuar)\n\n");
-            getchar();
-          } 
-
-          else {
+          if (listaPessoas(alunos)) {
             int alunoExcluido;
             printf("\nQual aluno você gostaria de remover? (selecione o id): ");
             scanf("%d", &alunoExcluido);
             getchar();
 
             if (alunos[alunoExcluido - 1].matricula == 0) {
-              printf("\n\nEsse aluno não existe\n(Aperte Enter para continuar)\n\n");
+              printf("\n\nEsse aluno não existe\n(Aperte Enter para "
+                     "continuar)\n\n");
               getchar();
-            } 
-            else {
+            } else {
               alunos[alunoExcluido - 1].matricula = 0;
-              printf("\n\nAluno excluído com sucesso\n(Aperte Enter para continuar)\n\n");
+              printf("\n\nAluno excluído com sucesso\n(Aperte Enter para "
+                     "continuar)\n\n");
               getchar();
             }
+          } else {
+            printf(
+                "Não foi há alunos disponíveis. (Aperte Enter para continuar)");
+            getchar();
           }
         }
         // Atualizar algum aluno
         else if (escolhaAluno == 3) {
-          int temAluno = false;
-          system("clear");
-
-          for (int i = usuariosQtd - 1; i >= 0; i--) {
-            if (alunos[i].matricula == 0) 
-              continue;
-            
-            else {
-              temAluno = true;
-              printf("[%d] ", i + 1);
-              puts(alunos[i].nome);
-            }
-          }
-
-          if (!temAluno) {
-            printf("\n\nNÃO HÁ ALUNOS PARA ATUALIZAR\n(Aperte Enter para continuar)\n\n");
-            getchar();
-          } 
-          else {
+          if (listaPessoas(alunos)) {
             int alunoEscolhido;
             printf("\n\nQual aluno deseja atualizar: ");
             scanf("%d", &alunoEscolhido);
@@ -491,60 +438,31 @@ int main() {
         }
         // Excluir um dos professores
         else if (escolhaProf == 2) {
-          int temProf = false;
-          system("clear");
-          for (int i = usuariosQtd - 1; i >= 0; i--) {
-            if (prof[i].matricula == 0)
-              continue;
-
-            else {
-              temProf = true;
-              printf("[%d] ", i + 1);
-              puts(prof[i].nome);
-            }
-          }
-
-          if (!temProf) {
-            printf("\n\nNÃO HÁ PROFESSORES PARA EXCLUIR \n(Aperte Enter para continuar)\n\n");
-            getchar();
-          } 
-          else {
+          if (listaPessoas(prof)) {
             int profExcluido;
-            printf("\nQual professor você gostaria de remover? (selecione o id): ");
+            printf("\nQual Professor você gostaria de remover? (selecione o id): ");
             scanf("%d", &profExcluido);
             getchar();
 
             if (prof[profExcluido - 1].matricula == 0) {
-              printf("\n\nEsse professor não existe \n(Aperte Enter para continuar)\n\n");
+              printf("\n\nEsse Professor não existe\n(Aperte Enter para "
+                     "continuar)\n\n");
               getchar();
-            } 
-            else {
+            } else {
               prof[profExcluido - 1].matricula = 0;
-              printf("\n\nProfessor excluído com sucesso \n(Aperte Enter para continuar)\n\n");
+              printf("\n\nProfessor excluído com sucesso\n(Aperte Enter para "
+                     "continuar)\n\n");
               getchar();
             }
+          } else {
+            printf(
+                "Não foi há Professor disponíveis. (Aperte Enter para continuar)");
+            getchar();
           }
         }
         // Atualizar algum professor
         else if (escolhaProf == 3) {
-          int temProf = false;
-          system("clear");
-          for (int i = usuariosQtd - 1; i >= 0; i--) {
-            if (prof[i].matricula == 0)
-              continue;
-
-            else {
-              temProf = true;
-              printf("[%d] ", i + 1);
-              puts(prof[i].nome);
-            }
-          }
-
-          if (!temProf) {
-            printf("\n\nNÃO HÁ PROFESSORES PARA ATUALIZAR \n(Aperte Enter para continuar)\n\n");
-            getchar();
-          } 
-          else {
+          if (listaPessoas(prof)) {
             int profEscolhido;
             printf("\n\nQual professor deseja atualizar: ");
             scanf("%d", &profEscolhido);
@@ -1019,49 +937,23 @@ int main() {
 
         // Listar todos os alunos
         if (escolhaRelatorio == 1) {
-          int temAluno = false;
-          system("clear");
-          for (int i = usuariosQtd - 1; i >= 0; i--) {
-            if (alunos[i].matricula == 0)
-              continue;
-
-            else {
-              temAluno = true;
-              printf("[%d] ", i + 1);
-              puts(alunos[i].nome);
-            }
-          }
-
-          if (!temAluno) {
+          if (listaPessoas(alunos)) {
+            printf("\n\nAlunos listados com sucessos\n(Aperte Enter para continuar)\n\n");
+            getchar();
+          } else {
             printf("\n\nNÃO HÁ ALUNOS DISPONÍVEIS\n(Aperte Enter para continuar)\n\n");
             getchar();
           }
-
-          printf("\n\nAlunos listados com sucessos\n(Aperte Enter para continuar)\n\n");
-          getchar();
         }
         // Listar todos os professores
         else if (escolhaRelatorio == 2) {
-          int temProfessor = false;
-          system("clear");
-          for (int i = usuariosQtd - 1; i >= 0; i--) {
-            if (prof[i].matricula == 0)
-              continue;
-
-            else {
-              temProfessor = true;
-              printf("[%d] ", i + 1);
-              puts(prof[i].nome);
-            }
-          }
-
-          if (!temProfessor) {
-            printf("\n\nNÃO HÁ PROFESSORES DISPONÍVEIS\n(Aperte Enter para continuar)\n\n");
+          if (listaPessoas(prof)) {
+            printf("\n\nAlunos listados com sucessos\n(Aperte Enter para continuar)\n\n");
+            getchar();
+          } else {
+            printf("\n\nNÃO HÁ ALUNOS DISPONÍVEIS\n(Aperte Enter para continuar)\n\n");
             getchar();
           }
-
-          printf("\n\nProfessores listados com sucessos\n(Aperte Enter para continuar)\n\n");
-          getchar();
         }
         // Listar todas as disciplinas
         else if (escolhaRelatorio == 3) {
@@ -1094,21 +986,7 @@ int main() {
         }
         // Listar alunos por gênero
         else if (escolhaRelatorio == 5) {
-          system("clear");
-          int temAluno = 0;
-          for (int i = usuariosQtd - 1; i >= 0; i--) {
-            if (alunos[i].matricula == 0)
-              continue;
-
-            else 
-              temAluno = 1;
-          }
-
-          if (!temAluno) {
-            printf("\n\nNÃO HÁ ALUNOS DISPONÍVEIS\n(Aperte Enter para continuar)\n\n");
-            getchar();
-          } 
-          else {
+          if (listaPessoas(alunos)) {
             printf("\nAlunos do gênero Masculino");
             for (int i = usuariosQtd - 1; i >= 0; i--) {
               if (alunos[i].matricula == 0)
@@ -1141,8 +1019,9 @@ int main() {
                 puts(alunos[i].nome);
               }
             }
+          } else {
+            printf("Não há alunos disponíveis");
           }
-
           printf("\n\n\n(Aperte Enter para continuar)");
           getchar();
         }
@@ -1156,21 +1035,7 @@ int main() {
         }
         // Listar professores por gênero
         else if (escolhaRelatorio == 8) {
-          system("clear");
-          int temProfessor = false;
-          for (int i = usuariosQtd - 1; i >= 0; i--) {
-            if (prof[i].matricula == 0)
-              continue;
-
-            else 
-              temProfessor = true;
-          }
-
-          if (!temProfessor) {
-            printf("\n\nNÃO HÁ PROFESSORES DISPONÍVEIS\n(Aperte Enter para continuar)\n\n");
-            getchar();
-          } 
-          else {
+          if (listaPessoas(prof)) {
             printf("\nProfessores do gênero Masculino");
             for (int i = usuariosQtd - 1; i >= 0; i--) {
               if (prof[i].matricula == 0)
@@ -1203,6 +1068,8 @@ int main() {
                 puts(prof[i].nome);
               }
             }
+          } else {
+            printf("Não há professores disponíveis");
           }
 
           printf("\n\n\n(Aperte Enter para continuar)");
