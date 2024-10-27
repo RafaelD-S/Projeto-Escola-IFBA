@@ -22,6 +22,7 @@ struct procedimentoMatricula {
   int codigo;
   int semestre;
   char professor[nomeTamanho];
+  char alunos[usuariosQtd][nomeTamanho];
 };
 
 int listaPessoas(rgInfoPessoa *pessoasLista);

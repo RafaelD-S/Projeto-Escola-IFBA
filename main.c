@@ -1,7 +1,6 @@
 #include "school.h"
 
 int main() {
-
   rgInfoPessoa alunos[usuariosQtd] = {0};
   rgInfoPessoa prof[usuariosQtd] = {0};
   struct procedimentoMatricula disciplina[disciplinaQtd] = {0};
@@ -72,7 +71,7 @@ int main() {
             "Atualizar algum aluno"
         };
         int escolhaAluno = listarOpcoes(opcoes, 3);
-        
+
         // Adionar um novo aluno
         if (escolhaAluno == 1) {
           int i = 0;
@@ -196,7 +195,7 @@ int main() {
         else if (escolhaAluno == 3) {
           if (listaPessoas(alunos)) {
             int alunoEscolhido;
-            printf("\n\nQual aluno deseja atualizar: ");
+            printf("\n\nQual aluno deseja atualizar? (selecione o id): ");
             scanf("%d", &alunoEscolhido);
             getchar();
 
@@ -324,7 +323,7 @@ int main() {
     // Cadastro de professor
     else if (escolha == 2) {
       while (true) {
-        
+
         system("clear");
         printf("CADASTRO DE PROFESSOR\n");
         const char *opcoes[] = {
@@ -456,7 +455,7 @@ int main() {
         else if (escolhaProf == 3) {
           if (listaPessoas(prof)) {
             int profEscolhido;
-            printf("\n\nQual professor deseja atualizar: ");
+            printf("\n\nQual professor deseja atualizar? (selecione o id): ");
             scanf("%d", &profEscolhido);
             getchar();
 
@@ -588,9 +587,10 @@ int main() {
         const char *opcoes[] = {
           "Incluir uma nova disciplina",
           "Exluir uma disciplina",
-          "Atualizar alguma disciplina"
+          "Atualizar alguma disciplina",
+          "Cadastrar um aluno na disciplina"
         };
-        int escolhaDisciplina = listarOpcoes(opcoes, 3);;
+        int escolhaDisciplina = listarOpcoes(opcoes, 4);
 
         // Cadastro de uma nova disciplina
         if (escolhaDisciplina == 1) {
@@ -622,7 +622,7 @@ int main() {
           }
 
           // verificação e cadastro do código da disciplina
-           while (true) {
+          while (true) {
             system("clear");
             printf("\n\nQual o código da disciplina?: ");
             scanf("%d", &disciplina[i].codigo);
@@ -889,6 +889,79 @@ int main() {
             }
           }
         } 
+        // Cadastrar um aluno em alguma disciplina
+        else if (escolhaDisciplina == 4) {
+          int temDisciplina = false;
+          system("clear");
+          for (int i = disciplinaQtd - 1; i >= 0; i--) {
+            if (disciplina[i].codigo == 0)
+              continue;
+
+            else {
+              temDisciplina = true;
+              printf("[%d] ", i + 1);
+              puts(disciplina[i].nome);
+            }
+          }
+
+          if (!temDisciplina) {
+            printf("\n\nNÃO HÁ DISCIPLINAS PARA CADASTRO\n(Aperte Enter para continuar)\n\n");
+            getchar();
+          } 
+          else {
+            int disciplinaEscolhida;
+            printf("\n\nQual disciplina deseja cadastrar o aluno? (selecione o id): ");
+            scanf("%d", &disciplinaEscolhida);
+            getchar();
+
+            if (disciplina[disciplinaEscolhida - 1].codigo == 0 || disciplinaEscolhida == 0) { // código tá vazando e deixando o 0 passar, tentarei consertar no futuro
+              printf("\n\nEssa disciplina não existe\n(Aperte Enter para continuar)\n\n");
+              getchar();
+            } 
+            else {
+              system("clear");
+              int temAluno = false;
+              for (int j = 0; j < usuariosQtd; j++) {
+                if (alunos[j].matricula == 0)
+                    continue;
+
+                else {
+                  temAluno = true;
+                  printf("[%d] ", j + 1);
+                  puts(alunos[j].nome);
+                }
+              }
+
+              if (!temAluno) {
+                printf("\n\nNÃO HÁ ALUNOS PARA SELECIONAR \n(Aperte Enter para continuar)\n\n");
+                getchar();
+              } 
+              else {
+                int alunoSelecionado;
+                printf("\n\nQual o nome do aluno que será cadastrado? (selecione o id): ");
+                scanf("%d", &alunoSelecionado);
+                getchar();
+
+                if (alunos[alunoSelecionado - 1].matricula == 0) {
+                  printf("\n\nEsse aluno não existe \n(Aperte Enter para continuar)\n\n");
+                  getchar();      
+                } 
+                else {
+                  for (int k = 0; k < usuariosQtd; k++) {
+                    if (disciplina[disciplinaEscolhida - 1].alunos[k][k] == '\0') {
+                      for (int j = 0; j < nomeTamanho; j++) {
+                        disciplina[disciplinaEscolhida - 1].alunos[k][j] = alunos[alunoSelecionado - 1].nome[j];
+                      }
+                    }
+                  }
+
+                  break;
+                }
+              }
+            }
+          }
+
+        }
         else
           break;
       }
