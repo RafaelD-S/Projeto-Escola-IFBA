@@ -117,13 +117,13 @@ int main() {
             for (int j = usuariosQtd - 1; j >= 0; j--) {
               if (alunos[j].matricula == alunos[i].matricula && i != j)
                 jaTemMatricula = true;
-              else {
+
+              else 
                 continue;
-              }
             }
+
             if (jaTemMatricula && alunos[i].matricula != 0) {
-              printf("\n\nJá existe um aluno com essa matricula. Tente "
-                     "novamente. \n(Aperte Enter para continuar)\n\n");
+              printf("\n\nJá existe um aluno com essa matricula. Tente novamente. \n(Aperte Enter para continuar)\n\n");
               getchar();
               continue;
             }
@@ -131,8 +131,7 @@ int main() {
             if (alunos[i].matricula > 0)
               break;
 
-            printf("Matricula inválida. Tente novamente. \n(Aperte Enter para "
-                   "continuar)\n\n");
+            printf("Matricula inválida. Tente novamente. \n(Aperte Enter para continuar)\n\n");
             getchar();
           }
 
@@ -151,8 +150,8 @@ int main() {
 
             if (strlen(alunos[i].nome) > 1)
               break;
-            printf("Nome inválido. Tente novamente. \n(Aperte Enter para "
-                   "continuar)\n\n");
+
+            printf("Nome inválido. Tente novamente. \n(Aperte Enter para continuar)\n\n");
             getchar();
           }
 
@@ -161,12 +160,11 @@ int main() {
             printf("\n\nQual o gênero do aluno? [M / F /  N]: ");
             alunos[i].sexo = getchar();
 
-            if (alunos[i].sexo == 'M' || alunos[i].sexo == 'F' ||
-                alunos[i].sexo == 'N')
+            if (alunos[i].sexo == 'M' || alunos[i].sexo == 'F' || alunos[i].sexo == 'N')
               break;
+
             system("clear");
-            printf("Gênero inválido. Tente novamente.\n(Aperte Enter para "
-                   "continuar)\n\n");
+            printf("Gênero inválido. Tente novamente.\n(Aperte Enter para continuar)\n\n");
             getchar();
           }
 
@@ -178,8 +176,8 @@ int main() {
 
             if (alunos[i].dtNasc > 9999999 && alunos[i].dtNasc < 99999999)
               break;
-            printf("Data de nascimento inválida. Tente novamente.\n(Aperte "
-                   "Enter para continuar)\n\n");
+
+            printf("Data de nascimento inválida. Tente novamente.\n(Aperte Enter para continuar)\n\n");
             getchar();
           }
 
@@ -191,8 +189,8 @@ int main() {
 
             if (alunos[i].cpf > 9999999999 && alunos[i].cpf < 99999999999)
               break;
-            printf("CPF inválido. Tente novamente.\n(Aperte Enter para "
-                   "continuar)\n\n");
+
+            printf("CPF inválido. Tente novamente.\n(Aperte Enter para continuar)\n\n");
             getchar();
           }
         }
@@ -200,33 +198,36 @@ int main() {
         else if (escolhaAluno == 2) {
           int temAluno = false;
           system("clear");
+
           for (int i = usuariosQtd - 1; i >= 0; i--) {
             if (alunos[i].matricula == 0)
               continue;
+
             else {
               temAluno = true;
               printf("[%d] ", i + 1);
               puts(alunos[i].nome);
             }
           }
+
           if (!temAluno) {
-            printf("\n\nNÃO HÁ ALUNOS PARA EXCLUIR\n(Aperte Enter para "
-                   "continuar)\n\n");
+            printf("\n\nNÃO HÁ ALUNOS PARA EXCLUIR\n(Aperte Enter para continuar)\n\n");
             getchar();
-          } else {
+          } 
+
+          else {
             int alunoExcluido;
             printf("\nQual aluno você gostaria de remover? (selecione o id): ");
             scanf("%d", &alunoExcluido);
             getchar();
 
             if (alunos[alunoExcluido - 1].matricula == 0) {
-              printf("\n\nEsse aluno não existe\n(Aperte Enter para "
-                     "continuar)\n\n");
+              printf("\n\nEsse aluno não existe\n(Aperte Enter para continuar)\n\n");
               getchar();
-            } else {
+            } 
+            else {
               alunos[alunoExcluido - 1].matricula = 0;
-              printf("\n\nAluno excluído com sucesso\n(Aperte Enter para "
-                     "continuar)\n\n");
+              printf("\n\nAluno excluído com sucesso\n(Aperte Enter para continuar)\n\n");
               getchar();
             }
           }
@@ -235,34 +236,37 @@ int main() {
         else if (escolhaAluno == 3) {
           int temAluno = false;
           system("clear");
+
           for (int i = usuariosQtd - 1; i >= 0; i--) {
-            if (alunos[i].matricula == 0) {
+            if (alunos[i].matricula == 0) 
               continue;
-            } else {
+            
+            else {
               temAluno = true;
               printf("[%d] ", i + 1);
               puts(alunos[i].nome);
             }
           }
+
           if (!temAluno) {
-            printf("\n\nNÃO HÁ ALUNOS PARA ATUALIZAR\n(Aperte Enter para "
-                   "continuar)\n\n");
+            printf("\n\nNÃO HÁ ALUNOS PARA ATUALIZAR\n(Aperte Enter para continuar)\n\n");
             getchar();
-          } else {
+          } 
+          else {
             int alunoEscolhido;
             printf("\n\nQual aluno deseja atualizar: ");
             scanf("%d", &alunoEscolhido);
             getchar();
 
             if (alunos[alunoEscolhido - 1].matricula == 0) {
-              printf("\n\nEsse aluno não existe \n(Aperte Enter para "
-                     "continuar)\n\n");
+              printf("\n\nEsse aluno não existe \n(Aperte Enter para continuar)\n\n");
               getchar();
-            } else {
+            } 
+            else {
               int escolhaAtualizarAluno;
+
               system("clear");
               printf("\nQue mudança deseja fazer:\n\n");
-
               printf("[1] - Mudar a matrícula\n");
               printf("[2] - Mudar o nome\n");
               printf("[3] - Mudar o gênero\n");
@@ -283,26 +287,23 @@ int main() {
                   getchar();
 
                   for (int j = usuariosQtd - 1; j >= 0; j--) {
-                    if (alunos[j].matricula ==
-                            alunos[alunoEscolhido - 1].matricula &&
-                        alunoEscolhido - 1 != j)
+                    if (alunos[j].matricula == alunos[alunoEscolhido - 1].matricula && alunoEscolhido - 1 != j)
                       jaTemMatricula = true;
-                    else {
+
+                    else
                       continue;
-                    }
                   }
-                  if (jaTemMatricula &&
-                      alunos[alunoEscolhido - 1].matricula != 0) {
-                    printf("\n\nJá existe um aluno com essa matricula. Tente "
-                           "novamente. \n(Aperte Enter para continuar)\n\n");
+
+                  if (jaTemMatricula && alunos[alunoEscolhido - 1].matricula != 0) {
+                    printf("\n\nJá existe um aluno com essa matricula. Tente novamente. \n(Aperte Enter para continuar)\n\n");
                     getchar();
                     continue;
                   }
 
                   if (alunos[alunoEscolhido - 1].matricula > 0)
                     break;
-                  printf("Matricula inválida. Tente novamente.\n(Aperte Enter "
-                         "para continuar)\n\n");
+
+                  printf("Matricula inválida. Tente novamente.\n(Aperte Enter para continuar)\n\n");
                   getchar();
                 }
               }
@@ -316,16 +317,15 @@ int main() {
                   // Capitalização do Aluno
                   for (int j = 97; j < 122; j++) {
                     if (alunos[alunoEscolhido - 1].nome[0] == j) {
-                      alunos[alunoEscolhido - 1].nome[0] =
-                          alunos[alunoEscolhido - 1].nome[0] - 32;
+                      alunos[alunoEscolhido - 1].nome[0] = alunos[alunoEscolhido - 1].nome[0] - 32;
                       break;
                     }
                   }
 
                   if (strlen(alunos[alunoEscolhido - 1].nome) > 1)
                     break;
-                  printf("Nome inválido. Tente novamente.\n(Aperte Enter para "
-                         "continuar)\n\n");
+
+                  printf("Nome inválido. Tente novamente.\n(Aperte Enter para continuar)\n\n");
                   getchar();
                 }
               }
@@ -336,12 +336,10 @@ int main() {
                   printf("\n\nEscolha o novo gênero: ");
                   alunos[alunoEscolhido - 1].sexo = getchar();
 
-                  if (alunos[alunoEscolhido - 1].sexo == 'M' ||
-                      alunos[alunoEscolhido - 1].sexo == 'F' ||
-                      alunos[alunoEscolhido - 1].sexo == 'N')
+                  if (alunos[alunoEscolhido - 1].sexo == 'M' || alunos[alunoEscolhido - 1].sexo == 'F' || alunos[alunoEscolhido - 1].sexo == 'N')
                     break;
-                  printf("Gênero inválido. Tente novamente.\n(Aperte Enter "
-                         "para continuar)\n\n");
+
+                  printf("Gênero inválido. Tente novamente.\n(Aperte Enter para continuar)\n\n");
                   getchar();
                 }
               }
@@ -353,11 +351,10 @@ int main() {
                   scanf("%d", &alunos[alunoEscolhido - 1].dtNasc);
                   getchar();
 
-                  if (alunos[alunoEscolhido - 1].dtNasc > 9999999 &&
-                      alunos[alunoEscolhido - 1].dtNasc < 99999999)
+                  if (alunos[alunoEscolhido - 1].dtNasc > 9999999 && alunos[alunoEscolhido - 1].dtNasc < 99999999)
                     break;
-                  printf("Data de nascimento inválida. Tente "
-                         "novamente.\n(Aperte Enter para continuar)\n\n");
+
+                  printf("Data de nascimento inválida. Tente novamente.\n(Aperte Enter para continuar)\n\n");
                   getchar();
                 }
               }
@@ -369,17 +366,17 @@ int main() {
                   scanf("%ld", &alunos[alunoEscolhido - 1].cpf);
                   getchar();
 
-                  if (alunos[alunoEscolhido - 1].cpf > 9999999999 &&
-                      alunos[alunoEscolhido - 1].cpf < 99999999999)
+                  if (alunos[alunoEscolhido - 1].cpf > 9999999999 && alunos[alunoEscolhido - 1].cpf < 99999999999)
                     break;
-                  printf("CPF inválido. Tente novamente.\n(Aperte Enter para "
-                         "continuar)\n\n");
+
+                  printf("CPF inválido. Tente novamente.\n(Aperte Enter para continuar)\n\n");
                   getchar();
                 }
               }
             }
           }
-        } else
+        } 
+        else
           break;
       }
     }
@@ -416,22 +413,21 @@ int main() {
             for (int j = usuariosQtd - 1; j >= 0; j--) {
               if (prof[j].matricula == prof[i].matricula && i != j)
                 jaTemMatricula = true;
-              else {
+
+              else
                 continue;
-              }
             }
 
             if (jaTemMatricula && prof[i].matricula != 0) {
-              printf("\n\nJá existe um professor com essa matricula. Tente "
-                     "novamente. \n(Aperte Enter para continuar)\n\n");
+              printf("\n\nJá existe um professor com essa matricula. Tente novamente. \n(Aperte Enter para continuar)\n\n");
               getchar();
               continue;
             }
 
             if (prof[i].matricula > 0)
               break;
-            printf("Matricula inválida. Tente novamente.\n(Aperte Enter para "
-                   "continuar)\n\n");
+
+            printf("Matricula inválida. Tente novamente.\n(Aperte Enter para continuar)\n\n");
             getchar();
           }
 
@@ -450,8 +446,8 @@ int main() {
 
             if (strlen(prof[i].nome) > 1)
               break;
-            printf("Nome inválido. Tente novamente.\n(Aperte Enter para "
-                   "continuar)\n\n");
+
+            printf("Nome inválido. Tente novamente.\n(Aperte Enter para continuar)\n\n");
             getchar();
           }
 
@@ -460,11 +456,10 @@ int main() {
             printf("\n\nQual o gênero do professor? [M / F /  N]: ");
             prof[i].sexo = getchar();
 
-            if (prof[i].sexo == 'M' || prof[i].sexo == 'F' ||
-                prof[i].sexo == 'N')
+            if (prof[i].sexo == 'M' || prof[i].sexo == 'F' || prof[i].sexo == 'N')
               break;
-            printf("Gênero inválido. Tente novamente.\n(Aperte Enter para "
-                   "continuar)\n\n");
+
+            printf("Gênero inválido. Tente novamente.\n(Aperte Enter para continuar)\n\n");
             getchar();
           }
 
@@ -476,8 +471,8 @@ int main() {
 
             if (prof[i].dtNasc > 9999999 && prof[i].dtNasc < 99999999)
               break;
-            printf("Data de nascimento inválida. Tente novamente.\n( Enter "
-                   "para continuar)\n\n");
+
+            printf("Data de nascimento inválida. Tente novamente.\n(Aperte Enter para continuar)\n\n");
             getchar();
           }
 
@@ -489,8 +484,8 @@ int main() {
 
             if (prof[i].cpf > 9999999999 && prof[i].cpf < 99999999999)
               break;
-            printf("CPF inválido. Tente novamente.\n(Aperte Enter para "
-                   "continuar)\n\n");
+
+            printf("CPF inválido. Tente novamente.\n(Aperte Enter para continuar)\n\n");
             getchar();
           }
         }
@@ -501,31 +496,31 @@ int main() {
           for (int i = usuariosQtd - 1; i >= 0; i--) {
             if (prof[i].matricula == 0)
               continue;
+
             else {
               temProf = true;
               printf("[%d] ", i + 1);
               puts(prof[i].nome);
             }
           }
+
           if (!temProf) {
-            printf("\n\nNÃO HÁ PROFESSORES PARA EXCLUIR \n(Aperte Enter para "
-                   "continuar)\n\n");
+            printf("\n\nNÃO HÁ PROFESSORES PARA EXCLUIR \n(Aperte Enter para continuar)\n\n");
             getchar();
-          } else {
+          } 
+          else {
             int profExcluido;
-            printf("\nQual professor você gostaria de remover? (selecione o "
-                   "id): ");
+            printf("\nQual professor você gostaria de remover? (selecione o id): ");
             scanf("%d", &profExcluido);
             getchar();
 
             if (prof[profExcluido - 1].matricula == 0) {
-              printf("\n\nEsse professor não existe \n(Aperte Enter para "
-                     "continuar)\n\n");
+              printf("\n\nEsse professor não existe \n(Aperte Enter para continuar)\n\n");
               getchar();
-            } else {
+            } 
+            else {
               prof[profExcluido - 1].matricula = 0;
-              printf("\n\nProfessor excluído com sucesso \n(Aperte Enter para "
-                     "continuar)\n\n");
+              printf("\n\nProfessor excluído com sucesso \n(Aperte Enter para continuar)\n\n");
               getchar();
             }
           }
@@ -535,29 +530,31 @@ int main() {
           int temProf = false;
           system("clear");
           for (int i = usuariosQtd - 1; i >= 0; i--) {
-            if (prof[i].matricula == 0) {
+            if (prof[i].matricula == 0)
               continue;
-            } else {
+
+            else {
               temProf = true;
               printf("[%d] ", i + 1);
               puts(prof[i].nome);
             }
           }
+
           if (!temProf) {
-            printf("\n\nNÃO HÁ PROFESSORES PARA ATUALIZAR \n(Aperte Enter para "
-                   "continuar)\n\n");
+            printf("\n\nNÃO HÁ PROFESSORES PARA ATUALIZAR \n(Aperte Enter para continuar)\n\n");
             getchar();
-          } else {
+          } 
+          else {
             int profEscolhido;
             printf("\n\nQual professor deseja atualizar: ");
             scanf("%d", &profEscolhido);
             getchar();
 
             if (prof[profEscolhido - 1].matricula == 0) {
-              printf("\n\nEsse professor não existe \n(Aperte Enter para "
-                     "continuar)\n\n");
+              printf("\n\nEsse professor não existe \n(Aperte Enter para continuar)\n\n");
               getchar();
-            } else {
+            } 
+            else {
               int escolhaAtualizarProf;
               system("clear");
               printf("\nQue mudança deseja fazer:\n\n");
@@ -582,27 +579,23 @@ int main() {
                   getchar();
 
                   for (int j = usuariosQtd - 1; j >= 0; j--) {
-                    if (prof[j].matricula ==
-                            prof[profEscolhido - 1].matricula &&
-                        profEscolhido - 1 != j)
+                    if (prof[j].matricula == prof[profEscolhido - 1].matricula && profEscolhido - 1 != j)
                       jaTemMatricula = true;
-                    else {
+
+                    else
                       continue;
-                    }
                   }
-                  if (jaTemMatricula &&
-                      prof[profEscolhido - 1].matricula != 0) {
-                    printf(
-                        "\n\nJá existe um professor com essa matricula. Tente "
-                        "novamente. \n(Aperte Enter para continuar)\n\n");
+
+                  if (jaTemMatricula && prof[profEscolhido - 1].matricula != 0) {
+                    printf("\n\nJá existe um professor com essa matricula. Tente novamente. \n(Aperte Enter para continuar)\n\n");
                     getchar();
                     continue;
                   }
 
                   if (prof[profEscolhido - 1].matricula > 0)
                     break;
-                  printf("Matricula inválida. Tente novamente.\n(Aperte Enter "
-                         "para continuar)\n\n");
+
+                  printf("Matricula inválida. Tente novamente.\n(Aperte Enter para continuar)\n\n");
                   getchar();
                 }
               }
@@ -616,16 +609,15 @@ int main() {
                   // Capitalização do Professor
                   for (int j = 97; j < 122; j++) {
                     if (prof[profEscolhido - 1].nome[0] == j) {
-                      prof[profEscolhido - 1].nome[0] =
-                          prof[profEscolhido - 1].nome[0] - 32;
+                      prof[profEscolhido - 1].nome[0] = prof[profEscolhido - 1].nome[0] - 32;
                       break;
                     }
                   }
 
                   if (strlen(prof[profEscolhido - 1].nome) > 1)
                     break;
-                  printf("Nome inválido. Tente novamente.\n(Aperte Enter para "
-                         "continuar)\n\n");
+
+                  printf("Nome inválido. Tente novamente.\n(Aperte Enter para continuar)\n\n");
                   getchar();
                 }
               }
@@ -636,12 +628,10 @@ int main() {
                   printf("\n\nEscolha o novo gênero: ");
                   prof[profEscolhido - 1].sexo = getchar();
 
-                  if (prof[profEscolhido - 1].sexo == 'M' ||
-                      prof[profEscolhido - 1].sexo == 'F' ||
-                      prof[profEscolhido - 1].sexo == 'N')
+                  if (prof[profEscolhido - 1].sexo == 'M' || prof[profEscolhido - 1].sexo == 'F' || prof[profEscolhido - 1].sexo == 'N')
                     break;
-                  printf("Gênero inválido. Tente novamente.\n(Aperte Enter "
-                         "para continuar)\n\n");
+
+                  printf("Gênero inválido. Tente novamente.\n(Aperte Enter para continuar)\n\n");
                   getchar();
                 }
               }
@@ -653,11 +643,10 @@ int main() {
                   scanf("%d", &prof[profEscolhido - 1].dtNasc);
                   getchar();
 
-                  if (prof[profEscolhido - 1].dtNasc > 9999999 &&
-                      prof[profEscolhido - 1].dtNasc < 99999999)
+                  if (prof[profEscolhido - 1].dtNasc > 9999999 && prof[profEscolhido - 1].dtNasc < 99999999)
                     break;
-                  printf("Data de nascimento inválida. Tente "
-                         "novamente.\n(Aperte Enter para continuar)\n\n");
+
+                  printf("Data de nascimento inválida. Tente novamente.\n(Aperte Enter para continuar)\n\n");
                   getchar();
                 }
               }
@@ -669,17 +658,17 @@ int main() {
                   scanf("%ld", &prof[profEscolhido - 1].cpf);
                   getchar();
 
-                  if (prof[profEscolhido - 1].cpf > 9999999999 &&
-                      prof[profEscolhido - 1].cpf < 99999999999)
+                  if (prof[profEscolhido - 1].cpf > 9999999999 && prof[profEscolhido - 1].cpf < 99999999999)
                     break;
-                  printf("CPF inválido. Tente novamente.\n(Aperte Enter para "
-                         "continuar)\n\n");
+
+                  printf("CPF inválido. Tente novamente.\n(Aperte Enter para continuar)\n\n");
                   getchar();
                 }
               }
             }
           }
-        } else
+        } 
+        else
           break;
       }
     }
@@ -723,8 +712,7 @@ int main() {
             if (strlen(disciplina[i].nome) > 1)
               break;
             
-            printf("Nome inválido. Tente novamente. \n(Aperte Enter para "
-                   "continuar)\n\n");
+            printf("Nome inválido. Tente novamente. \n(Aperte Enter para continuar)\n\n");
             getchar();              
           }
 
@@ -739,14 +727,13 @@ int main() {
             for (int j = disciplinaQtd - 1; j >= 0; j--) {
               if (disciplina[j].codigo == disciplina[i].codigo && i != j)
                 jaTemDisciplina = true;
-              else {
+
+              else
                 continue;
-              }
             }
 
             if (jaTemDisciplina && disciplina[i].codigo != 0) {
-              printf("\n\nJá existe uma disciplina com esse código. Tente "
-                     "novamente. \n(Aperte Enter para continuar)\n\n");
+              printf("\n\nJá existe uma disciplina com esse código. Tente novamente. \n(Aperte Enter para continuar)\n\n");
               getchar();
               continue;
             }
@@ -754,8 +741,7 @@ int main() {
             if (disciplina[i].codigo > 0)
               break;
             
-            printf("Código inválido. Tente novamente.\n(Aperte Enter para "
-                   "continuar)\n\n");
+            printf("Código inválido. Tente novamente.\n(Aperte Enter para continuar)\n\n");
             getchar();
           }
 
@@ -768,8 +754,8 @@ int main() {
  
             if (disciplina[i].semestre > 0)
               break;
-            printf("Semestre inválido. Tente novamente.\n(Aperte Enter para "
-                   "continuar)\n\n");
+
+            printf("Semestre inválido. Tente novamente.\n(Aperte Enter para continuar)\n\n");
             getchar();
           }
 
@@ -778,9 +764,10 @@ int main() {
             system("clear");
             int temProf = false;
             for (int j = usuariosQtd - 1; j >= 0; j--) {
-              if (prof[j].matricula == 0) {
+              if (prof[j].matricula == 0)
                 continue;
-              } else {
+
+              else {
                 temProf = true;
                 printf("[%d] ", j + 1);
                 puts(prof[j].nome);
@@ -788,22 +775,20 @@ int main() {
             }
 
             if (!temProf) {
-              printf("\n\nNÃO HÁ PROFESSORES PARA SELECIONAR \n(Aperte Enter "
-                    "para continuar)\n\n");
+              printf("\n\nNÃO HÁ PROFESSORES PARA SELECIONAR \n(Aperte Enter para continuar)\n\n");
               getchar();
             } 
             else {
               int profSelecionado;
-              printf("\n\nQual o nome do professor da disciplina? (selecione o "
-                    "id): ");
+              printf("\n\nQual o nome do professor da disciplina? (selecione o id): ");
               scanf("%d", &profSelecionado);
               getchar();
 
               if (prof[profSelecionado - 1].matricula == 0) {
-                printf("\n\nEsse professor não existe \n(Aperte Enter para "
-                      "continuar)\n\n");
+                printf("\n\nEsse professor não existe \n(Aperte Enter para continuar)\n\n");
                 getchar();      
-              } else {
+              } 
+              else {
                 for (int j = 0; j < nomeTamanho; j++) {
                   disciplina[i].professor[j] = prof[profSelecionado - 1].nome[j];
                 }
@@ -812,7 +797,6 @@ int main() {
             }              
           }
         }
-
         // Excluir uma disciplina existente
         else if (escolhaDisciplina == 2) {
           int temDisciplina = false;
@@ -820,6 +804,7 @@ int main() {
           for (int i = disciplinaQtd - 1; i >= 0; i--) {
             if (disciplina[i].codigo == 0)
               continue;
+
             else {
               temDisciplina = true;
               printf("[%d] ", i + 1);
@@ -828,29 +813,26 @@ int main() {
           }
 
           if (!temDisciplina) {
-            printf("\n\nNÃO HÁ DISCIPLINAS PARA EXCLUIR\n(Aperte Enter para "
-                   "continuar)\n\n");
+            printf("\n\nNÃO HÁ DISCIPLINAS PARA EXCLUIR\n(Aperte Enter para continuar)\n\n");
             getchar();
-          } else {
+          } 
+          else {
             int disciplinaExcluida;
-            printf("\nQual disciplina você gostaria de remover? (selecione o "
-                   "id): ");
+            printf("\nQual disciplina você gostaria de remover? (selecione o id): ");
             scanf("%d", &disciplinaExcluida);
             getchar();
 
             if (disciplina[disciplinaExcluida - 1].codigo == 0 || disciplinaExcluida == 0) { // código tá vazando e deixando o 0 passar, tentarei consertar no futuro
-              printf("\n\nEssa disciplina não existe\n(Aperte Enter para "
-                     "continuar)\n\n");
+              printf("\n\nEssa disciplina não existe\n(Aperte Enter para continuar)\n\n");
               getchar();
-            } else {
+            } 
+            else {
               disciplina[disciplinaExcluida - 1].codigo = 0;
-              printf("\n\nDisciplina excluída com sucesso\n(Aperte Enter para "
-                     "continuar)\n\n");
+              printf("\n\nDisciplina excluída com sucesso\n(Aperte Enter para continuar)\n\n");
               getchar();
             }
           }
-        }
-        
+        }        
         // Atualizar alguma disciplina
         else if (escolhaDisciplina == 3) {
           int temDisciplina = false;
@@ -858,6 +840,7 @@ int main() {
           for (int i = disciplinaQtd - 1; i >= 0; i--) {
             if (disciplina[i].codigo == 0)
               continue;
+
             else {
               temDisciplina = true;
               printf("[%d] ", i + 1);
@@ -866,20 +849,20 @@ int main() {
           }
 
           if (!temDisciplina) {
-            printf("\n\nNÃO HÁ DISCIPLINAS PARA ATUALIZAR\n(Aperte Enter para "
-                   "continuar)\n\n");
+            printf("\n\nNÃO HÁ DISCIPLINAS PARA ATUALIZAR\n(Aperte Enter para continuar)\n\n");
             getchar();
-          } else {
+          } 
+          else {
             int disciplinaEscolhida;
             printf("\n\nQual disciplina deseja atualizar: ");
             scanf("%d", &disciplinaEscolhida);
             getchar();
 
             if (disciplina[disciplinaEscolhida - 1].codigo == 0 || disciplinaEscolhida == 0) { // código tá vazando e deixando o 0 passar, tentarei consertar no futuro
-              printf("\n\nEssa disciplina não existe\n(Aperte Enter para "
-                     "continuar)\n\n");
+              printf("\n\nEssa disciplina não existe\n(Aperte Enter para continuar)\n\n");
               getchar();
-            } else {
+            } 
+            else {
               int escolhaAtualizarDisciplina;
               system("clear");
               printf("\nQue mudança deseja fazer:\n\n");
@@ -903,8 +886,7 @@ int main() {
                   // Capitalização da Disciplina
                   for (int j = 97; j < 122; j++) {
                     if (disciplina[disciplinaEscolhida - 1].nome[0] == j) {
-                      disciplina[disciplinaEscolhida - 1].nome[0] =
-                          disciplina[disciplinaEscolhida - 1].nome[0] - 32;
+                      disciplina[disciplinaEscolhida - 1].nome[0] = disciplina[disciplinaEscolhida - 1].nome[0] - 32;
                       break;
                     }
                   }            
@@ -912,8 +894,7 @@ int main() {
                   if (strlen(disciplina[disciplinaEscolhida - 1].nome) > 1)
                     break;
                   
-                  printf("Nome inválido. Tente novamente. \n(Aperte Enter para "
-                        "continuar)\n\n");
+                  printf("Nome inválido. Tente novamente. \n(Aperte Enter para continuar)\n\n");
                   getchar();              
                 }                
               }
@@ -929,14 +910,14 @@ int main() {
                   for (int j = disciplinaQtd - 1; j >= 0; j--) {
                     if (disciplina[j].codigo == disciplina[disciplinaEscolhida - 1].codigo && disciplinaEscolhida - 1 != j)
                       jaTemDisciplina = true;
+
                     else {
                       continue;
                     }
                   }
       
                   if (jaTemDisciplina && disciplina[disciplinaEscolhida - 1].codigo != 0) {
-                    printf("\n\nJá existe uma disciplina com esse código. Tente "
-                            "novamente. \n(Aperte Enter para continuar)\n\n");
+                    printf("\n\nJá existe uma disciplina com esse código. Tente novamente. \n(Aperte Enter para continuar)\n\n");
                     getchar();
                     continue;
                   }
@@ -944,8 +925,7 @@ int main() {
                   if (disciplina[disciplinaEscolhida - 1].codigo > 0)
                     break;
                   
-                  printf("Código inválido. Tente novamente.\n(Aperte Enter para "
-                          "continuar)\n\n");
+                  printf("Código inválido. Tente novamente.\n(Aperte Enter para continuar)\n\n");
                   getchar();
                 }
               }
@@ -959,8 +939,8 @@ int main() {
  
                   if (disciplina[disciplinaEscolhida - 1].semestre > 0)
                     break;
-                  printf("Semestre inválido. Tente novamente.\n(Aperte Enter para "
-                         "continuar)\n\n");
+                  
+                  printf("Semestre inválido. Tente novamente.\n(Aperte Enter para continuar)\n\n");
                   getchar();
                 }
 
@@ -971,9 +951,10 @@ int main() {
                   system("clear");
                   int temProf = false;
                   for (int j = usuariosQtd - 1; j >= 0; j--) {
-                    if (prof[j].matricula == 0) {
+                    if (prof[j].matricula == 0)
                       continue;
-                    } else {
+                    
+                    else {
                       temProf = true;
                       printf("[%d] ", j + 1);
                       puts(prof[j].nome);
@@ -981,22 +962,20 @@ int main() {
                   }
 
                   if (!temProf) {
-                    printf("\n\nNÃO HÁ PROFESSORES PARA SELECIONAR \n(Aperte Enter "
-                          "para continuar)\n\n");
+                    printf("\n\nNÃO HÁ PROFESSORES PARA SELECIONAR \n(Aperte Enter para continuar)\n\n");
                     getchar();
                   } 
                   else {
                     int profSelecionado;
-                    printf("\n\nQual o nome do professor da disciplina? (selecione o "
-                          "id): ");
+                    printf("\n\nQual o nome do professor da disciplina? (selecione o id): ");
                     scanf("%d", &profSelecionado);
                     getchar();
 
                     if (prof[profSelecionado - 1].matricula == 0) {
-                      printf("\n\nEsse professor não existe \n(Aperte Enter para "
-                            "continuar)\n\n");
+                      printf("\n\nEsse professor não existe \n(Aperte Enter para continuar)\n\n");
                       getchar();      
-                    } else {
+                    } 
+                    else {
                       for (int j = 0; j < nomeTamanho; j++) {
                         disciplina[disciplinaEscolhida - 1].professor[j] = prof[profSelecionado - 1].nome[j];
                       }
@@ -1007,16 +986,16 @@ int main() {
               }
             }
           }
-        } else
+        } 
+        else
           break;
       }
     }
     // Relatórios
     else if (escolha == 4) {
       while (true) {
-
-        system("clear");
         int escolhaRelatorio;
+        system("clear");
         printf("\nRELATÓRIO");
         printf("\nDigite uma das seguintes opções:\n\n");
         printf("[1] - Listar todos os alunos\n");             // Rafael X
@@ -1025,16 +1004,13 @@ int main() {
         printf("[4] - Listar uma disciplina com detalhes\n"); // Luana
         printf("[5] - Listar alunos por gênero\n");           // Rafael X
         printf("[6] - Listar alunos ordenados por nome\n");   // Rafael
-        printf(
-            "[7] - Listar alunos ordenados por data de nascimento\n"); // Rafael
+        printf("[7] - Listar alunos ordenados por data de nascimento\n"); // Rafael
         printf("[8] - Listar professores por gênero\n");               // Rafael X
         printf("[9] - Listar professores ordenados por nome\n");       // Rafael
-        printf(
-            "[10] - Listar professores ordenados por data de nascimento\n"); // Rafael
+        printf("[10] - Listar professores ordenados por data de nascimento\n"); // Rafael
         printf("[11] - Listar aniversariantes do mês\n"); // Luana
         printf("[12] - Pesquisar pesssoas\n");            // Rafael
-        printf(
-            "[13] - Listar alunos matriculados em menos de 3 disciplinas\n"); // Luana
+        printf("[13] - Listar alunos matriculados em menos de 3 disciplinas\n"); // Luana
         printf("[14] - Listar disciplinas que extrapolam 40 vagas\n"); // Luana
         printf("\nInsira qualquer outra tecla para finalizar\n");
         printf("\n=> ");
@@ -1048,19 +1024,20 @@ int main() {
           for (int i = usuariosQtd - 1; i >= 0; i--) {
             if (alunos[i].matricula == 0)
               continue;
+
             else {
               temAluno = true;
               printf("[%d] ", i + 1);
               puts(alunos[i].nome);
             }
           }
+
           if (!temAluno) {
-            printf("\n\nNÃO HÁ ALUNOS DISPONÍVEIS\n(Aperte Enter para "
-                   "continuar)\n\n");
+            printf("\n\nNÃO HÁ ALUNOS DISPONÍVEIS\n(Aperte Enter para continuar)\n\n");
             getchar();
           }
-          printf("\n\nAlunos listados com sucessos\n(Aperte Enter para "
-                 "continuar)\n\n");
+
+          printf("\n\nAlunos listados com sucessos\n(Aperte Enter para continuar)\n\n");
           getchar();
         }
         // Listar todos os professores
@@ -1070,19 +1047,20 @@ int main() {
           for (int i = usuariosQtd - 1; i >= 0; i--) {
             if (prof[i].matricula == 0)
               continue;
+
             else {
               temProfessor = true;
               printf("[%d] ", i + 1);
               puts(prof[i].nome);
             }
           }
+
           if (!temProfessor) {
-            printf("\n\nNÃO HÁ PROFESSORES DISPONÍVEIS\n(Aperte Enter para "
-                   "continuar)\n\n");
+            printf("\n\nNÃO HÁ PROFESSORES DISPONÍVEIS\n(Aperte Enter para continuar)\n\n");
             getchar();
           }
-          printf("\n\nProfessores listados com sucessos\n(Aperte Enter para "
-                 "continuar)\n\n");
+
+          printf("\n\nProfessores listados com sucessos\n(Aperte Enter para continuar)\n\n");
           getchar();
         }
         // Listar todas as disciplinas
@@ -1100,20 +1078,21 @@ int main() {
           for (int i = usuariosQtd - 1; i >= 0; i--) {
             if (alunos[i].matricula == 0)
               continue;
-            else {
+
+            else 
               temAluno = 1;
-            }
           }
 
           if (!temAluno) {
-            printf("\n\nNÃO HÁ ALUNOS DISPONÍVEIS\n(Aperte Enter para "
-                   "continuar)\n\n");
+            printf("\n\nNÃO HÁ ALUNOS DISPONÍVEIS\n(Aperte Enter para continuar)\n\n");
             getchar();
-          } else {
+          } 
+          else {
             printf("\nAlunos do gênero Masculino");
             for (int i = usuariosQtd - 1; i >= 0; i--) {
               if (alunos[i].matricula == 0)
                 continue;
+
               else if (alunos[i].sexo == 'M') {
                 printf("\n- ");
                 puts(alunos[i].nome);
@@ -1124,6 +1103,7 @@ int main() {
             for (int i = usuariosQtd - 1; i >= 0; i--) {
               if (alunos[i].matricula == 0)
                 continue;
+
               else if (alunos[i].sexo == 'F') {
                 printf("\n- ");
                 puts(alunos[i].nome);
@@ -1134,12 +1114,14 @@ int main() {
             for (int i = usuariosQtd - 1; i >= 0; i--) {
               if (alunos[i].matricula == 0)
                 continue;
+
               else if (alunos[i].sexo == 'N') {
                 printf("\n-");
                 puts(alunos[i].nome);
               }
             }
           }
+
           printf("\n\n\n(Aperte Enter para continuar)");
           getchar();
         }
@@ -1158,20 +1140,21 @@ int main() {
           for (int i = usuariosQtd - 1; i >= 0; i--) {
             if (prof[i].matricula == 0)
               continue;
-            else {
+
+            else 
               temProfessor = true;
-            }
           }
 
           if (!temProfessor) {
-            printf("\n\nNÃO HÁ PROFESSORES DISPONÍVEIS\n(Aperte Enter para "
-                   "continuar)\n\n");
+            printf("\n\nNÃO HÁ PROFESSORES DISPONÍVEIS\n(Aperte Enter para continuar)\n\n");
             getchar();
-          } else {
+          } 
+          else {
             printf("\nProfessores do gênero Masculino");
             for (int i = usuariosQtd - 1; i >= 0; i--) {
               if (prof[i].matricula == 0)
                 continue;
+              
               else if (prof[i].sexo == 'M') {
                 printf("\n- ");
                 puts(prof[i].nome);
@@ -1182,6 +1165,7 @@ int main() {
             for (int i = usuariosQtd - 1; i >= 0; i--) {
               if (prof[i].matricula == 0)
                 continue;
+              
               else if (prof[i].sexo == 'F') {
                 printf("\n- ");
                 puts(prof[i].nome);
@@ -1192,12 +1176,14 @@ int main() {
             for (int i = usuariosQtd - 1; i >= 0; i--) {
               if (prof[i].matricula == 0)
                 continue;
+              
               else if (prof[i].sexo == 'N') {
                 printf("\n-");
                 puts(prof[i].nome);
               }
             }
           }
+
           printf("\n\n\n(Aperte Enter para continuar)");
           getchar();
         }
@@ -1224,11 +1210,12 @@ int main() {
         // Listar disciplinas que extrapolam 40 vagas
         else if (escolhaRelatorio == 14) {
           printf("%d", escolhaRelatorio);
-        } else {
+        } 
+        else
           break;
-        }
       }
-    } else {
+    } 
+    else {
       printf("Finalizado");
       break;
     }
