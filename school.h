@@ -28,5 +28,6 @@ struct procedimentoMatricula {
 int listaPessoas(rgInfoPessoa *pessoasLista);
 int listarOpcoes(const char **opcao, int opcaoQtd);
 void registrarPessoas(rgInfoPessoa *pessoas);
+void excluirPessoas(rgInfoPessoa *pessoas);
 
 #endif

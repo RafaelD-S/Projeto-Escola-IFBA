@@ -72,34 +72,14 @@ int main() {
         };
         int escolhaAluno = listarOpcoes(opcoes, 3);
 
-        // Adionar um novo aluno
         if (escolhaAluno == 1) {
           registrarPessoas(alunos);
         }
-        // Excluir um dos alunos
+          
         else if (escolhaAluno == 2) {
-          if (listaPessoas(alunos)) {
-            int alunoExcluido;
-            printf("\nQual aluno você gostaria de remover? (selecione o id): ");
-            scanf("%d", &alunoExcluido);
-            getchar();
-
-            if (alunos[alunoExcluido - 1].matricula == 0) {
-              printf("\n\nEsse aluno não existe\n(Aperte Enter para "
-                     "continuar)\n\n");
-              getchar();
-            } else {
-              alunos[alunoExcluido - 1].matricula = 0;
-              printf("\n\nAluno excluído com sucesso\n(Aperte Enter para "
-                     "continuar)\n\n");
-              getchar();
-            }
-          } else {
-            printf(
-                "Não foi há alunos disponíveis. (Aperte Enter para continuar)");
-            getchar();
-          }
+          excluirPessoas(alunos);
         }
+        
         // Atualizar algum aluno
         else if (escolhaAluno == 3) {
           if (listaPessoas(alunos)) {
@@ -242,34 +222,14 @@ int main() {
         };
         int escolhaProf = listarOpcoes(opcoes, 3);
 
-        // Adionar um novo professor
         if (escolhaProf == 1) {
           registrarPessoas(prof);
         }
-        // Excluir um dos professores
-        else if (escolhaProf == 2) {
-          if (listaPessoas(prof)) {
-            int profExcluido;
-            printf("\nQual Professor você gostaria de remover? (selecione o id): ");
-            scanf("%d", &profExcluido);
-            getchar();
 
-            if (prof[profExcluido - 1].matricula == 0) {
-              printf("\n\nEsse Professor não existe\n(Aperte Enter para "
-                     "continuar)\n\n");
-              getchar();
-            } else {
-              prof[profExcluido - 1].matricula = 0;
-              printf("\n\nProfessor excluído com sucesso\n(Aperte Enter para "
-                     "continuar)\n\n");
-              getchar();
-            }
-          } else {
-            printf(
-                "Não foi há Professor disponíveis. (Aperte Enter para continuar)");
-            getchar();
-          }
+        else if (escolhaProf == 2) {
+          excluirPessoas(prof);
         }
+        
         // Atualizar algum professor
         else if (escolhaProf == 3) {
           if (listaPessoas(prof)) {
