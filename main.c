@@ -1145,7 +1145,7 @@ int main() {
 
                 for (int j = 0; j < usuariosQtd; j++) {
                   for (int k = 0; k < usuariosQtd; k++) {
-                    if (disciplina[disciplinaEscolhida - 1].alunos[j] == alunos[k].matricula && disciplina[disciplinaEscolhida - 1].alunos[j] !=) {
+                    if (disciplina[disciplinaEscolhida - 1].alunos[j] == alunos[k].matricula && disciplina[disciplinaEscolhida - 1].alunos[j] != 0) {
                       printf("  %d. ", j + 1);
                       puts(alunos[k].nome);
                       break;
@@ -1353,7 +1353,50 @@ int main() {
         }
         // Listar disciplinas que extrapolam 40 vagas
         else if (escolhaRelatorio == 14) {
-          printf("%d", escolhaRelatorio);
+          int temDisciplina = false;
+          system("clear");
+          for (int i = disciplinaQtd - 1; i >= 0; i--) {
+            if (disciplina[i].codigo == 0)
+              continue;
+
+            else {
+              temDisciplina = true;
+              break;
+            }
+          }
+          
+          if (!temDisciplina) {
+            printf("\n\nNÃO HÁ DISCIPLINAS CADASTRADAS\n(Aperte Enter para continuar)\n\n");
+            getchar();
+          } 
+          else {
+            int disciplinaCheia = false;
+            for (int i = 0; i < disciplinaQtd; i++) {
+              int alunos = 0;
+              for (int j = 0; j < usuariosQtd; j++) {
+                if (disciplina[i].alunos[j] != 0) {
+                  alunos++;
+                }
+              }
+              if (alunos > 40) {
+                disciplinaCheia = true;
+                puts(disciplina[i].nome);
+                printf("- Professor: ");
+                puts(disciplina[i].professor);
+                printf("- Quantidade de Alunos: %d", alunos);
+                printf("\n\n");
+              }
+            }
+
+            if (!disciplinaCheia) {
+              printf("NÃO HÁ DISCIPLINAS COM MAIS DE 40 ALUNOS CADASTRADOS\n(Aperte Enter para continuar)\n\n");
+              getchar();
+              break;
+            }
+
+            printf("(Aperte Enter para continuar)\n\n");
+            getchar();
+          }
         } 
         else
           break;
