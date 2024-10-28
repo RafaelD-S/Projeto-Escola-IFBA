@@ -588,9 +588,10 @@ int main() {
           "Incluir uma nova disciplina",
           "Exluir uma disciplina",
           "Atualizar alguma disciplina",
-          "Cadastrar um aluno na disciplina"
+          "Cadastrar um aluno na disciplina",
+          "Excluir o cadastro de um aluno na disciplina"
         };
-        int escolhaDisciplina = listarOpcoes(opcoes, 4);
+        int escolhaDisciplina = listarOpcoes(opcoes, 5);
 
         // Cadastro de uma nova disciplina
         if (escolhaDisciplina == 1) {
@@ -961,6 +962,75 @@ int main() {
           }
 
         }
+        // Excluir cadastro de um aluno em alguma disciplina
+        else if (escolhaDisciplina == 5) {
+          int temDisciplina = false;
+          system("clear");
+          for (int i = disciplinaQtd - 1; i >= 0; i--) {
+            if (disciplina[i].codigo == 0)
+              continue;
+
+            else {
+              temDisciplina = true;
+              printf("[%d] ", i + 1);
+              puts(disciplina[i].nome);
+            }
+          }
+          
+          if (!temDisciplina) {
+            printf("\n\nNÃO HÁ DISCIPLINAS CADASTRADAS\n(Aperte Enter para continuar)\n\n");
+            getchar();
+          } 
+          else {
+            int disciplinaEscolhida;
+            printf("\n\nQual disciplina deseja remover o cadastro do aluno? (selecione o id): ");
+            scanf("%d", &disciplinaEscolhida);
+            getchar();
+
+            if (disciplina[disciplinaEscolhida - 1].codigo == 0 || disciplinaEscolhida == 0) { // código tá vazando e deixando o 0 passar, tentarei consertar no futuro
+              printf("\n\nEssa disciplina não existe\n(Aperte Enter para continuar)\n\n");
+              getchar();
+            } 
+            else {
+              system("clear");
+              int temAluno = false;
+              for (int j = 0; j < usuariosQtd; j++) {
+                if (disciplina[disciplinaEscolhida - 1].alunos[j][0] == '\0')
+                  continue;
+
+                else {
+                  temAluno = true;
+                  printf("[%d] ", j + 1);
+                  puts(disciplina[disciplinaEscolhida - 1].alunos[j]);
+                }
+              }
+
+              if (!temAluno) {
+                printf("\n\nNÃO HÁ ALUNOS PARA SELECIONAR \n(Aperte Enter para continuar)\n\n");
+                getchar();
+              } 
+              else {
+                int alunoSelecionado;
+                printf("\n\nQual o nome do aluno que terá o cadastro removido? (selecione o id): ");
+                scanf("%d", &alunoSelecionado);
+                getchar();
+
+                if (disciplina[disciplinaEscolhida - 1].alunos[alunoSelecionado - 1][0] == '\0') {
+                  printf("\n\nEsse aluno não existe \n(Aperte Enter para continuar)\n\n");
+                  getchar();      
+                } 
+                else {
+                  for (int i = 0; i < nomeTamanho; i++) {
+                    disciplina[disciplinaEscolhida - 1].alunos[alunoSelecionado - 1][i] = '\0';
+                  }
+                  printf("\n\nCadastro excluído com sucesso\n(Aperte Enter para continuar)\n\n");
+                  getchar();
+                  break;
+                }
+              }
+            }
+          }
+        } 
         else
           break;
       }
@@ -973,8 +1043,8 @@ int main() {
         const char *opcoesRelatorio[] = {
             "Listar todos os alunos",                          // Rafael X
             "Listar todos os professores",                     // Rafael X
-            "Listar todas as disciplinas",                     // Luana
-            "Listar uma disciplina com detalhes",              // Luana
+            "Listar todas as disciplinas",                     // Luana X
+            "Listar uma disciplina com detalhes",              // Luana X
             "Listar alunos por gênero",                        // Rafael X
             "Listar alunos ordenados por nome",                // Rafael
             "Listar alunos ordenados por data de nascimento",  // Rafael
@@ -991,7 +1061,7 @@ int main() {
         // Listar todos os alunos
         if (escolhaRelatorio == 1) {
           if (listaPessoas(alunos)) {
-            printf("\n\nAlunos listados com sucessos\n(Aperte Enter para continuar)\n\n");
+            printf("\n\nAlunos listados com sucesso\n(Aperte Enter para continuar)\n\n");
             getchar();
           } else {
             printf("\n\nNÃO HÁ ALUNOS DISPONÍVEIS\n(Aperte Enter para continuar)\n\n");
@@ -1001,7 +1071,7 @@ int main() {
         // Listar todos os professores
         else if (escolhaRelatorio == 2) {
           if (listaPessoas(prof)) {
-            printf("\n\nAlunos listados com sucessos\n(Aperte Enter para continuar)\n\n");
+            printf("\n\nAlunos listados com sucesso\n(Aperte Enter para continuar)\n\n");
             getchar();
           } else {
             printf("\n\nNÃO HÁ ALUNOS DISPONÍVEIS\n(Aperte Enter para continuar)\n\n");
