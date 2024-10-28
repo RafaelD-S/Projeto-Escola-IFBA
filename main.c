@@ -328,7 +328,7 @@ int main() {
         printf("CADASTRO DE PROFESSOR\n");
         const char *opcoes[] = {
           "Incluir um novo professor",
-          "Exluir um professor",
+          "Excluir um professor",
           "Atualizar algum professor"
         };
         int escolhaProf = listarOpcoes(opcoes, 3);
@@ -586,7 +586,7 @@ int main() {
         printf("CADASTRO DE DISCIPLINA\n");
         const char *opcoes[] = {
           "Incluir uma nova disciplina",
-          "Exluir uma disciplina",
+          "Excluir uma disciplina",
           "Atualizar alguma disciplina",
           "Cadastrar um aluno na disciplina",
           "Excluir o cadastro de um aluno na disciplina"
