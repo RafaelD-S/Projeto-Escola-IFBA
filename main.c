@@ -949,10 +949,8 @@ int main() {
                 } 
                 else {
                   for (int k = 0; k < usuariosQtd; k++) {
-                    if (disciplina[disciplinaEscolhida - 1].alunos[k][k] == '\0') {
-                      for (int j = 0; j < nomeTamanho; j++) {
-                        disciplina[disciplinaEscolhida - 1].alunos[k][j] = alunos[alunoSelecionado - 1].nome[j];
-                      }
+                    if (disciplina[disciplinaEscolhida - 1].alunos[k] == 0) {
+                      disciplina[disciplinaEscolhida - 1].alunos[k] = alunos[alunoSelecionado - 1].matricula;
                       break;
                     }
                   }
@@ -960,7 +958,6 @@ int main() {
               }
             }
           }
-
         }
         // Excluir cadastro de um aluno em alguma disciplina
         else if (escolhaDisciplina == 5) {
@@ -995,13 +992,18 @@ int main() {
               system("clear");
               int temAluno = false;
               for (int j = 0; j < usuariosQtd; j++) {
-                if (disciplina[disciplinaEscolhida - 1].alunos[j][0] == '\0')
+                if (disciplina[disciplinaEscolhida - 1].alunos[j] == 0)
                   continue;
 
                 else {
                   temAluno = true;
-                  printf("[%d] ", j + 1);
-                  puts(disciplina[disciplinaEscolhida - 1].alunos[j]);
+                  for (int k = 0; k < usuariosQtd; k++) {
+                    if (disciplina[disciplinaEscolhida - 1].alunos[j] == alunos[k].matricula) {
+                      printf("[%d] ", j + 1);
+                      puts(alunos[k].nome);
+                      break;
+                    }
+                  }
                 }
               }
 
@@ -1015,13 +1017,13 @@ int main() {
                 scanf("%d", &alunoSelecionado);
                 getchar();
 
-                if (disciplina[disciplinaEscolhida - 1].alunos[alunoSelecionado - 1][0] == '\0') {
+                if (disciplina[disciplinaEscolhida - 1].alunos[alunoSelecionado - 1] == 0) {
                   printf("\n\nEsse aluno não existe \n(Aperte Enter para continuar)\n\n");
                   getchar();      
                 } 
                 else {
                   for (int i = 0; i < nomeTamanho; i++) {
-                    disciplina[disciplinaEscolhida - 1].alunos[alunoSelecionado - 1][i] = '\0';
+                    disciplina[disciplinaEscolhida - 1].alunos[alunoSelecionado - 1] = 0;
                   }
                   printf("\n\nCadastro excluído com sucesso\n(Aperte Enter para continuar)\n\n");
                   getchar();
@@ -1030,7 +1032,7 @@ int main() {
               }
             }
           }
-        } 
+        }     
         else
           break;
       }
@@ -1138,13 +1140,16 @@ int main() {
               printf("- Código: %d\n- Semestre: %d\n- Professor: ", disciplina[disciplinaEscolhida - 1].codigo, disciplina[disciplinaEscolhida - 1].semestre);
               puts(disciplina[disciplinaEscolhida - 1].professor);
 
-              if (disciplina[disciplinaEscolhida - 1].alunos[0][0] != '\0') {
+              if (disciplina[disciplinaEscolhida - 1].alunos[0] != 0) {
                 printf("- Alunos Cadastrados na Disciplina: \n");
 
                 for (int j = 0; j < usuariosQtd; j++) {
-                  if (disciplina[disciplinaEscolhida - 1].alunos[j][0] != '\0') {
-                    printf("  %d. ", j + 1);
-                    puts(disciplina[disciplinaEscolhida - 1].alunos[j]);
+                  for (int k = 0; k < usuariosQtd; k++) {
+                    if (disciplina[disciplinaEscolhida - 1].alunos[j] == alunos[k].matricula && disciplina[disciplinaEscolhida - 1].alunos[j] !=) {
+                      printf("  %d. ", j + 1);
+                      puts(alunos[k].nome);
+                      break;
+                    } 
                   }
                 }
 
