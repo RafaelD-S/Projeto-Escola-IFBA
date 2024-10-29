@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "./relatorios/relatorios.h"
 
 #ifndef ESCOLA_H
 #define ESCOLA_H
