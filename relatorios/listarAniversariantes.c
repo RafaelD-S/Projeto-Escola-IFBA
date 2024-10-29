@@ -15,7 +15,7 @@ void listarAniversariantes(rgInfoPessoa *alunos, rgInfoPessoa *prof) {
     }
 
     if (!temPessoa) {
-      printf("\n\nNÃO HÁ ALUNOS DISPONÍVEIS\n(Aperte Enter para continuar)\n\n");
+      printf("\n\nNÃO HÁ PESSOAS DISPONÍVEIS\n(Aperte Enter para continuar)\n\n");
       getchar();
     } 
     else {

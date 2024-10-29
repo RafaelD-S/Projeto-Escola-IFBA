@@ -149,7 +149,7 @@ int main() {
           listarAlunosNome(alunos);
 
         else if (escolhaRelatorio == 7) 
-          listarAlunosNasc();
+          listarAlunosNasc(alunos);
 
         else if (escolhaRelatorio == 8) 
           listarProfGenero(prof);
