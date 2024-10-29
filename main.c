@@ -164,7 +164,7 @@ int main() {
           listarAniversariantes(alunos, prof);
 
         else if (escolhaRelatorio == 12) 
-          pesquisarPessoas();
+          pesquisarPessoas(alunos, prof);
 
         else if (escolhaRelatorio == 13) 
           listarMenosQueTresDisciplinas(disciplina, alunos);
