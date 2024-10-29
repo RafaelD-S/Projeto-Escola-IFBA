@@ -3,51 +3,48 @@
 int main() {
   rgInfoPessoa alunos[usuariosQtd] = {0};
   rgInfoPessoa prof[usuariosQtd] = {0};
-  struct procedimentoMatricula disciplina[disciplinaQtd] = {0};
-
-  char nome1[nomeTamanho] = "Rafael";     // Aluno
-  char nome5[nomeTamanho] = "Luana";      // Aluno 2
-  char nome2[nomeTamanho] = "Romilson";   // Professor 1
-  char nome3[nomeTamanho] = "Magno";      // Professor 2
-  char nome4[nomeTamanho] = "Matemática"; // disciplina
-  char nome6[nomeTamanho] = "Lógica de Programação"; // disciplina 2
+  procedimentoMatricula disciplina[disciplinaQtd] = {0};
 
   // Exemplos de uso para não ter que gerar um novo todo teste
+  char nome1[nomeTamanho] = "Rafael";  
   alunos[0].matricula = 123;
   alunos[0].sexo = 'F';
-  strcpy(alunos[0].nome, nome1); // nome do aluno
+  strcpy(alunos[0].nome, nome1);
   alunos[0].dtNasc = 28032006;
   alunos[0].cpf = 12345678912;
 
-  alunos[1].matricula = 123;
+  char nome5[nomeTamanho] = "Luana";   
+  alunos[1].matricula = 321;
   alunos[1].sexo = 'M';
-  strcpy(alunos[1].nome, nome5); // nome do aluno
+  strcpy(alunos[1].nome, nome5);
   alunos[1].dtNasc = 18012006;
   alunos[1].cpf = 12345678912;
 
-  // Professor 1
+  char nome2[nomeTamanho] = "Romilson";  
   prof[0].matricula = 123;
   prof[0].sexo = 'F';
-  strcpy(prof[0].nome, nome2); // nome do professor 1
+  strcpy(prof[0].nome, nome2);
   prof[0].dtNasc = 18012006;
   prof[0].cpf = 12345678912;
 
-  // Professor 2
-  prof[1].matricula = 123;
+  char nome3[nomeTamanho] = "Magno";      
+  prof[1].matricula = 321;
   prof[1].sexo = 'M';
-  strcpy(prof[1].nome, nome3); // nome do professor 2
+  strcpy(prof[1].nome, nome3); 
   prof[1].dtNasc = 18122006;
   prof[1].cpf = 12345678912;
 
-  strcpy(disciplina[0].nome, nome4); // nome da matéria
+  char nome4[nomeTamanho] = "Matemática"; 
+  strcpy(disciplina[0].nome, nome4);
   disciplina[0].codigo = 2;
   disciplina[0].semestre = 1;
-  strcpy(disciplina[0].professor, nome3); // nome do professor 2
+  strcpy(disciplina[0].professor, nome3); 
 
-  strcpy(disciplina[1].nome, nome6); // nome da matéria
+  char nome6[nomeTamanho] = "Lógica de Programação"; 
+  strcpy(disciplina[1].nome, nome6);
   disciplina[1].codigo = 1;
   disciplina[1].semestre = 1;
-  strcpy(disciplina[1].professor, nome2); // nome do professor 2
+  strcpy(disciplina[1].professor, nome2);
 
   while (true) {
     system("clear");
@@ -60,7 +57,7 @@ int main() {
     };
     int escolha = listarOpcoes(opcoes, 4);
 
-    // Cadastro de alunos
+    // Cadastro de Alunos
     if (escolha == 1) {
       while (true) {
         system("clear");
@@ -72,21 +69,20 @@ int main() {
         };
         int escolhaAluno = listarOpcoes(opcoes, 3);
 
-        if (escolhaAluno == 1) {
+        if (escolhaAluno == 1) 
           registrarPessoas(alunos);
-        }
           
-        else if (escolhaAluno == 2) {
+        else if (escolhaAluno == 2) 
           excluirPessoas(alunos);
-        }
         
-        else if (escolhaAluno == 3) {
+        else if (escolhaAluno == 3) 
           atualizarPessoas(alunos);
-        } 
-        else
+
+        else if (escolhaAluno == 0)
           break;
       }
     }
+      
     // Cadastro de professor
     else if (escolha == 2) {
       while (true) {
@@ -111,13 +107,15 @@ int main() {
         else if (escolhaProf == 3)
           atualizarPessoas(prof);
         
-        else
+        else if (escolhaProf == 0)
           break;
       }
     }
+
     // Cadastro de disciplina
     else if (escolha == 3) {
       while (true) {
+        
         system("clear");
         printf("CADASTRO DE DISCIPLINA\n");
         const char *opcoes[] = {
@@ -128,462 +126,27 @@ int main() {
           "Excluir o cadastro de um aluno na disciplina"
         };
         int escolhaDisciplina = listarOpcoes(opcoes, 5);
+        
+        if (escolhaDisciplina == 1) 
+          adcionarDisciplina(disciplina, prof);
 
-        // Cadastro de uma nova disciplina
-        if (escolhaDisciplina == 1) {
-          int i = 0;
-          for (; i <= disciplinaQtd; i++) {
-            if (disciplina[i].codigo == 0)
-              break;
-          }
+        else if (escolhaDisciplina == 2) 
+          excluirDisciplina(disciplina);   
 
-          // verificação e cadastro do nome da disciplina
-          while (true) {
-            system("clear");
-            printf("\n\nQual o nome da disciplina?: ");
-            fgets(disciplina[i].nome, 30, stdin);
+        else if (escolhaDisciplina == 3) 
+          atualizarDisciplina(disciplina, prof);
 
-            // Capitalização da Disciplina
-            for (int j = 97; j < 122; j++) {
-              if (disciplina[i].nome[0] == j) {
-                disciplina[i].nome[0] = disciplina[i].nome[0] - 32;
-                break;
-              }
-            }              
+        else if (escolhaDisciplina == 4) 
+          cadastrarAlunoDisciplina(disciplina, alunos);
 
-            if (strlen(disciplina[i].nome) > 1)
-              break;
+        else if (escolhaDisciplina == 5) 
+          excluirAlunoDisciplina(disciplina, alunos);
 
-            printf("Nome inválido. Tente novamente. \n(Aperte Enter para continuar)\n\n");
-            getchar();              
-          }
-
-          // verificação e cadastro do código da disciplina
-          while (true) {
-            system("clear");
-            printf("\n\nQual o código da disciplina?: ");
-            scanf("%d", &disciplina[i].codigo);
-            getchar();
-
-            int jaTemDisciplina = false;
-            for (int j = disciplinaQtd - 1; j >= 0; j--) {
-              if (disciplina[j].codigo == disciplina[i].codigo && i != j)
-                jaTemDisciplina = true;
-
-              else
-                continue;
-            }
-
-            if (jaTemDisciplina && disciplina[i].codigo != 0) {
-              printf("\n\nJá existe uma disciplina com esse código. Tente novamente. \n(Aperte Enter para continuar)\n\n");
-              getchar();
-              continue;
-            }
-
-            if (disciplina[i].codigo > 0)
-              break;
-
-            printf("Código inválido. Tente novamente.\n(Aperte Enter para continuar)\n\n");
-            getchar();
-          }
-
-          // verificação e cadastro do semestre
-          while (true) {
-            system("clear");
-            printf("\n\nQual o semestre da disciplina? [Insira apenas o numero]: ");
-            scanf("%d", &disciplina[i].semestre);
-            getchar();
-
-            if (disciplina[i].semestre > 0)
-              break;
-
-            printf("Semestre inválido. Tente novamente.\n(Aperte Enter para continuar)\n\n");
-            getchar();
-          }
-
-          // verificação e cadastro do professor na disciplina
-          while (true) {
-            system("clear");
-            int temProf = false;
-            for (int j = usuariosQtd - 1; j >= 0; j--) {
-              if (prof[j].matricula == 0)
-                continue;
-
-              else {
-                temProf = true;
-                printf("[%d] ", j + 1);
-                puts(prof[j].nome);
-              }
-            }
-
-            if (!temProf) {
-              printf("\n\nNÃO HÁ PROFESSORES PARA SELECIONAR \n(Aperte Enter para continuar)\n\n");
-              getchar();
-            } 
-            else {
-              int profSelecionado;
-              printf("\n\nQual o nome do professor da disciplina? (selecione o id): ");
-              scanf("%d", &profSelecionado);
-              getchar();
-
-              if (prof[profSelecionado - 1].matricula == 0) {
-                printf("\n\nEsse professor não existe \n(Aperte Enter para continuar)\n\n");
-                getchar();      
-              } 
-              else {
-                for (int j = 0; j < nomeTamanho; j++) {
-                  disciplina[i].professor[j] = prof[profSelecionado - 1].nome[j];
-                }
-                break;
-              }
-            }              
-          }
-        }
-        // Excluir uma disciplina existente
-        else if (escolhaDisciplina == 2) {
-          int temDisciplina = false;
-          system("clear");
-          for (int i = disciplinaQtd - 1; i >= 0; i--) {
-            if (disciplina[i].codigo == 0)
-              continue;
-
-            else {
-              temDisciplina = true;
-              printf("[%d] ", i + 1);
-              puts(disciplina[i].nome);
-            }
-          }
-
-          if (!temDisciplina) {
-            printf("\n\nNÃO HÁ DISCIPLINAS PARA EXCLUIR\n(Aperte Enter para continuar)\n\n");
-            getchar();
-          } 
-          else {
-            int disciplinaExcluida;
-            printf("\nQual disciplina você gostaria de remover? (selecione o id): ");
-            scanf("%d", &disciplinaExcluida);
-            getchar();
-
-            if (disciplina[disciplinaExcluida - 1].codigo == 0 || disciplinaExcluida == 0) { // código tá vazando e deixando o 0 passar, tentarei consertar no futuro
-              printf("\n\nEssa disciplina não existe\n(Aperte Enter para continuar)\n\n");
-              getchar();
-            } 
-            else {
-              disciplina[disciplinaExcluida - 1].codigo = 0;
-              printf("\n\nDisciplina excluída com sucesso\n(Aperte Enter para continuar)\n\n");
-              getchar();
-            }
-          }
-        }        
-        // Atualizar alguma disciplina
-        else if (escolhaDisciplina == 3) {
-          int temDisciplina = false;
-          system("clear");
-          for (int i = disciplinaQtd - 1; i >= 0; i--) {
-            if (disciplina[i].codigo == 0)
-              continue;
-
-            else {
-              temDisciplina = true;
-              printf("[%d] ", i + 1);
-              puts(disciplina[i].nome);
-            }
-          }
-
-          if (!temDisciplina) {
-            printf("\n\nNÃO HÁ DISCIPLINAS PARA ATUALIZAR\n(Aperte Enter para continuar)\n\n");
-            getchar();
-          } 
-          else {
-            int disciplinaEscolhida;
-            printf("\n\nQual disciplina deseja atualizar: ");
-            scanf("%d", &disciplinaEscolhida);
-            getchar();
-
-            if (disciplina[disciplinaEscolhida - 1].codigo == 0 || disciplinaEscolhida == 0) { // código tá vazando e deixando o 0 passar, tentarei consertar no futuro
-              printf("\n\nEssa disciplina não existe\n(Aperte Enter para continuar)\n\n");
-              getchar();
-            } 
-            else {
-              system("clear");
-              printf("Que mudança deseja fazer\n");
-              const char *opcoes[] = {
-                "Mudar o nome",
-                "Mudar o código",
-                "Mudar o semestre" 
-                "Mudar o nome do professor",
-              };
-              int escolhaAtualizarDisciplina = listarOpcoes(opcoes, 4);;
-
-              // Escolher um novo nome para uma disciplina
-              if (escolhaAtualizarDisciplina == 1) {
-                while (true) {
-                  system("clear");
-                  printf("Informe o novo nome para a disciplina: ");
-                  fgets(disciplina[disciplinaEscolhida - 1].nome, 30, stdin);
-
-                  // Capitalização da Disciplina
-                  for (int j = 97; j < 122; j++) {
-                    if (disciplina[disciplinaEscolhida - 1].nome[0] == j) {
-                      disciplina[disciplinaEscolhida - 1].nome[0] = disciplina[disciplinaEscolhida - 1].nome[0] - 32;
-                      break;
-                    }
-                  }            
-
-                  if (strlen(disciplina[disciplinaEscolhida - 1].nome) > 1)
-                    break;
-
-                  printf("Nome inválido. Tente novamente. \n(Aperte Enter para continuar)\n\n");
-                  getchar();              
-                }                
-              }
-              // Escolher um novo código para a disciplina
-              else if (escolhaAtualizarDisciplina == 2) {
-                while (true) {
-                  system("clear");
-                  printf("\n\nQual o código da disciplina?: ");
-                  scanf("%d", &disciplina[disciplinaEscolhida - 1].codigo);
-                  getchar();
-
-                  int jaTemDisciplina = false;
-                  for (int j = disciplinaQtd - 1; j >= 0; j--) {
-                    if (disciplina[j].codigo == disciplina[disciplinaEscolhida - 1].codigo && disciplinaEscolhida - 1 != j)
-                      jaTemDisciplina = true;
-
-                    else {
-                      continue;
-                    }
-                  }
-
-                  if (jaTemDisciplina && disciplina[disciplinaEscolhida - 1].codigo != 0) {
-                    printf("\n\nJá existe uma disciplina com esse código. Tente novamente. \n(Aperte Enter para continuar)\n\n");
-                    getchar();
-                    continue;
-                  }
-
-                  if (disciplina[disciplinaEscolhida - 1].codigo > 0)
-                    break;
-
-                  printf("Código inválido. Tente novamente.\n(Aperte Enter para continuar)\n\n");
-                  getchar();
-                }
-              }
-              // Escolher um novo semestre para a disciplina
-              else if (escolhaAtualizarDisciplina == 3) {
-                while (true) {
-                  system("clear");
-                  printf("Informe o novo semestre [Insira apenas numeros]: ");
-                  scanf("%d", &disciplina[disciplinaEscolhida - 1].semestre);
-                  getchar();
-
-                  if (disciplina[disciplinaEscolhida - 1].semestre > 0)
-                    break;
-
-                  printf("Semestre inválido. Tente novamente.\n(Aperte Enter para continuar)\n\n");
-                  getchar();
-                }
-
-              }
-              // Escolher um novo nome para o professor da disciplina
-              else if (escolhaAtualizarDisciplina == 4) {
-                while (true) {
-                  system("clear");
-                  int temProf = false;
-                  for (int j = usuariosQtd - 1; j >= 0; j--) {
-                    if (prof[j].matricula == 0)
-                      continue;
-
-                    else {
-                      temProf = true;
-                      printf("[%d] ", j + 1);
-                      puts(prof[j].nome);
-                    }
-                  }
-
-                  if (!temProf) {
-                    printf("\n\nNÃO HÁ PROFESSORES PARA SELECIONAR \n(Aperte Enter para continuar)\n\n");
-                    getchar();
-                  } 
-                  else {
-                    int profSelecionado;
-                    printf("\n\nQual o nome do professor da disciplina? (selecione o id): ");
-                    scanf("%d", &profSelecionado);
-                    getchar();
-
-                    if (prof[profSelecionado - 1].matricula == 0) {
-                      printf("\n\nEsse professor não existe \n(Aperte Enter para continuar)\n\n");
-                      getchar();      
-                    } 
-                    else {
-                      for (int j = 0; j < nomeTamanho; j++) {
-                        disciplina[disciplinaEscolhida - 1].professor[j] = prof[profSelecionado - 1].nome[j];
-                      }
-                      break;
-                    }
-                  }              
-                }
-              }
-            }
-          }
-        } 
-        // Cadastrar um aluno em alguma disciplina
-        else if (escolhaDisciplina == 4) {
-          int temDisciplina = false;
-          system("clear");
-          for (int i = disciplinaQtd - 1; i >= 0; i--) {
-            if (disciplina[i].codigo == 0)
-              continue;
-
-            else {
-              temDisciplina = true;
-              printf("[%d] ", i + 1);
-              puts(disciplina[i].nome);
-            }
-          }
-
-          if (!temDisciplina) {
-            printf("\n\nNÃO HÁ DISCIPLINAS PARA CADASTRO\n(Aperte Enter para continuar)\n\n");
-            getchar();
-          } 
-          else {
-            int disciplinaEscolhida;
-            printf("\n\nQual disciplina deseja cadastrar o aluno? (selecione o id): ");
-            scanf("%d", &disciplinaEscolhida);
-            getchar();
-
-            if (disciplina[disciplinaEscolhida - 1].codigo == 0 || disciplinaEscolhida == 0) { // código tá vazando e deixando o 0 passar, tentarei consertar no futuro
-              printf("\n\nEssa disciplina não existe\n(Aperte Enter para continuar)\n\n");
-              getchar();
-            } 
-            else {
-              system("clear");
-              int temAluno = false;
-              for (int j = 0; j < usuariosQtd; j++) {
-                if (alunos[j].matricula == 0)
-                    continue;
-
-                else {
-                  temAluno = true;
-                  printf("[%d] ", j + 1);
-                  puts(alunos[j].nome);
-                }
-              }
-
-              if (!temAluno) {
-                printf("\n\nNÃO HÁ ALUNOS PARA SELECIONAR \n(Aperte Enter para continuar)\n\n");
-                getchar();
-              } 
-              else {
-                int alunoSelecionado;
-                printf("\n\nQual o nome do aluno que será cadastrado? (selecione o id): ");
-                scanf("%d", &alunoSelecionado);
-                getchar();
-
-                if (alunos[alunoSelecionado - 1].matricula == 0) {
-                  printf("\n\nEsse aluno não existe \n(Aperte Enter para continuar)\n\n");
-                  getchar();      
-                } 
-                else {
-                  int jaTemAluno = false;
-                  for (int i = 0; i < usuariosQtd; i++) {
-                    if (disciplina[disciplinaEscolhida - 1].alunos[i] == alunos[alunoSelecionado - 1].matricula) 
-                      jaTemAluno = true;
-                  }
-                  if (jaTemAluno) {
-                    printf("\n\nEsse aluno já foi cadastrado\n(Aperte Enter para continuar)\n\n");
-                    getchar();
-                  }
-                  else {
-                    for (int k = 0; k < usuariosQtd; k++) {
-                      if (disciplina[disciplinaEscolhida - 1].alunos[k] == 0) {
-                        disciplina[disciplinaEscolhida - 1].alunos[k] = alunos[alunoSelecionado - 1].matricula;
-                        break;
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-        // Excluir cadastro de um aluno em alguma disciplina
-        else if (escolhaDisciplina == 5) {
-          int temDisciplina = false;
-          system("clear");
-          for (int i = disciplinaQtd - 1; i >= 0; i--) {
-            if (disciplina[i].codigo == 0)
-              continue;
-
-            else {
-              temDisciplina = true;
-              printf("[%d] ", i + 1);
-              puts(disciplina[i].nome);
-            }
-          }
-
-          if (!temDisciplina) {
-            printf("\n\nNÃO HÁ DISCIPLINAS CADASTRADAS\n(Aperte Enter para continuar)\n\n");
-            getchar();
-          } 
-          else {
-            int disciplinaEscolhida;
-            printf("\n\nQual disciplina deseja remover o cadastro do aluno? (selecione o id): ");
-            scanf("%d", &disciplinaEscolhida);
-            getchar();
-
-            if (disciplina[disciplinaEscolhida - 1].codigo == 0 || disciplinaEscolhida == 0) { // código tá vazando e deixando o 0 passar, tentarei consertar no futuro
-              printf("\n\nEssa disciplina não existe\n(Aperte Enter para continuar)\n\n");
-              getchar();
-            } 
-            else {
-              system("clear");
-              int temAluno = false;
-              for (int j = 0; j < usuariosQtd; j++) {
-                if (disciplina[disciplinaEscolhida - 1].alunos[j] == 0)
-                  continue;
-
-                else {
-                  temAluno = true;
-                  for (int k = 0; k < usuariosQtd; k++) {
-                    if (disciplina[disciplinaEscolhida - 1].alunos[j] == alunos[k].matricula) {
-                      printf("[%d] ", j + 1);
-                      puts(alunos[k].nome);
-                      break;
-                    }
-                  }
-                }
-              }
-
-              if (!temAluno) {
-                printf("\n\nNÃO HÁ ALUNOS PARA SELECIONAR \n(Aperte Enter para continuar)\n\n");
-                getchar();
-              } 
-              else {
-                int alunoSelecionado;
-                printf("\n\nQual o nome do aluno que terá o cadastro removido? (selecione o id): ");
-                scanf("%d", &alunoSelecionado);
-                getchar();
-
-                if (disciplina[disciplinaEscolhida - 1].alunos[alunoSelecionado - 1] == 0) {
-                  printf("\n\nEsse aluno não existe \n(Aperte Enter para continuar)\n\n");
-                  getchar();      
-                } 
-                else {
-                  for (int i = 0; i < nomeTamanho; i++) {
-                    disciplina[disciplinaEscolhida - 1].alunos[alunoSelecionado - 1] = 0;
-                  }
-                  printf("\n\nCadastro excluído com sucesso\n(Aperte Enter para continuar)\n\n");
-                  getchar();
-                  break;
-                }
-              }
-            }
-          }
-        }     
-        else
+        else if (escolhaDisciplina == 0)
           break;
       }
     }
+
     // Relatórios
     else if (escolha == 4) {
       while (true) {
