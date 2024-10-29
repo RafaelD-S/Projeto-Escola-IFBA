@@ -24,7 +24,7 @@ void atualizarDisciplina(procedimentoMatricula *disciplina, rgInfoPessoa *prof) 
     scanf("%d", &disciplinaEscolhida);
     getchar();
 
-    if (disciplina[disciplinaEscolhida - 1].codigo == 0 || disciplinaEscolhida == 0) { // código tá vazando e deixando o 0 passar, tentarei consertar no futuro
+    if (disciplina[disciplinaEscolhida - 1].codigo == 0 || disciplinaEscolhida == 0) {
       printf("\n\nEssa disciplina não existe\n(Aperte Enter para continuar)\n\n");
       getchar();
     } 

@@ -24,7 +24,7 @@ void excluirDisciplina(procedimentoMatricula *disciplina) {
     scanf("%d", &disciplinaExcluida);
     getchar();
 
-    if (disciplina[disciplinaExcluida - 1].codigo == 0 || disciplinaExcluida == 0) { // código tá vazando e deixando o 0 passar, tentarei consertar no futuro
+    if (disciplina[disciplinaExcluida - 1].codigo == 0 || disciplinaExcluida == 0) {
       printf("\n\nEssa disciplina não existe\n(Aperte Enter para continuar)\n\n");
       getchar();
     } 
