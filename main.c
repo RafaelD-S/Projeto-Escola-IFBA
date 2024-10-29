@@ -155,7 +155,7 @@ int main() {
           listarProfGenero(prof);
 
         else if (escolhaRelatorio == 9) 
-          listarProfNome();
+          listarProfNome(prof);
 
         else if (escolhaRelatorio == 10) 
           listarProfNasc();
