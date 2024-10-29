@@ -167,7 +167,7 @@ int main() {
           pesquisarPessoas();
 
         else if (escolhaRelatorio == 13) 
-          listarMenosQueTresDisciplinas();
+          listarMenosQueTresDisciplinas(disciplina, alunos);
 
         else if (escolhaRelatorio == 14) 
           listarDisciplinasQuarentaVagas(disciplina);
