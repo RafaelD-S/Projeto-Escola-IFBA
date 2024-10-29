@@ -5,6 +5,50 @@ int main() {
   rgInfoPessoa prof[usuariosQtd] = {0};
   struct procedimentoMatricula disciplina[disciplinaQtd] = {0};
 
+  char nome1[nomeTamanho] = "Rafael";     // Aluno
+  char nome5[nomeTamanho] = "Luana";      // Aluno 2
+  char nome2[nomeTamanho] = "Romilson";   // Professor 1
+  char nome3[nomeTamanho] = "Magno";      // Professor 2
+  char nome4[nomeTamanho] = "Matemática"; // disciplina
+  char nome6[nomeTamanho] = "Lógica de Programação"; // disciplina 2
+
+  // Exemplos de uso para não ter que gerar um novo todo teste
+  alunos[0].matricula = 123;
+  alunos[0].sexo = 'F';
+  strcpy(alunos[0].nome, nome1); // nome do aluno
+  alunos[0].dtNasc = 28032006;
+  alunos[0].cpf = 12345678912;
+
+  alunos[1].matricula = 123;
+  alunos[1].sexo = 'M';
+  strcpy(alunos[1].nome, nome5); // nome do aluno
+  alunos[1].dtNasc = 18012006;
+  alunos[1].cpf = 12345678912;
+
+  // Professor 1
+  prof[0].matricula = 123;
+  prof[0].sexo = 'F';
+  strcpy(prof[0].nome, nome2); // nome do professor 1
+  prof[0].dtNasc = 18012006;
+  prof[0].cpf = 12345678912;
+
+  // Professor 2
+  prof[1].matricula = 123;
+  prof[1].sexo = 'M';
+  strcpy(prof[1].nome, nome3); // nome do professor 2
+  prof[1].dtNasc = 18122006;
+  prof[1].cpf = 12345678912;
+
+  strcpy(disciplina[0].nome, nome4); // nome da matéria
+  disciplina[0].codigo = 2;
+  disciplina[0].semestre = 1;
+  strcpy(disciplina[0].professor, nome3); // nome do professor 2
+
+  strcpy(disciplina[1].nome, nome6); // nome da matéria
+  disciplina[1].codigo = 1;
+  disciplina[1].semestre = 1;
+  strcpy(disciplina[1].professor, nome2); // nome do professor 2
+
   while (true) {
     system("clear");
     printf("Bem vindo ao Projeto Escola. Digite uma das seguintes opções:");
