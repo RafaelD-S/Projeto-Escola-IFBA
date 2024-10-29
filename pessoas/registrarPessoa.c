@@ -1,4 +1,4 @@
-#include "school.h"
+#include "../school.h"
 
 void registrarPessoas(rgInfoPessoa *pessoas) {
   

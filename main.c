@@ -5,50 +5,6 @@ int main() {
   rgInfoPessoa prof[usuariosQtd] = {0};
   struct procedimentoMatricula disciplina[disciplinaQtd] = {0};
 
-  char nome1[nomeTamanho] = "Rafael";     // Aluno
-  char nome5[nomeTamanho] = "Luana";      // Aluno 2
-  char nome2[nomeTamanho] = "Romilson";   // Professor 1
-  char nome3[nomeTamanho] = "Magno";      // Professor 2
-  char nome4[nomeTamanho] = "Matemática"; // disciplina
-  char nome6[nomeTamanho] = "Lógica de Programação"; // disciplina 2
-
-  // Exemplos de uso para não ter que gerar um novo todo teste
-  alunos[0].matricula = 123;
-  alunos[0].sexo = 'F';
-  strcpy(alunos[0].nome, nome1); // nome do aluno
-  alunos[0].dtNasc = 28032006;
-  alunos[0].cpf = 12345678912;
-
-  alunos[1].matricula = 123;
-  alunos[1].sexo = 'M';
-  strcpy(alunos[1].nome, nome5); // nome do aluno
-  alunos[1].dtNasc = 18012006;
-  alunos[1].cpf = 12345678912;
-
-  // Professor 1
-  prof[0].matricula = 123;
-  prof[0].sexo = 'F';
-  strcpy(prof[0].nome, nome2); // nome do professor 1
-  prof[0].dtNasc = 18012006;
-  prof[0].cpf = 12345678912;
-
-  // Professor 2
-  prof[1].matricula = 123;
-  prof[1].sexo = 'M';
-  strcpy(prof[1].nome, nome3); // nome do professor 2
-  prof[1].dtNasc = 18122006;
-  prof[1].cpf = 12345678912;
-
-  strcpy(disciplina[0].nome, nome4); // nome da matéria
-  disciplina[0].codigo = 2;
-  disciplina[0].semestre = 1;
-  strcpy(disciplina[0].professor, nome3); // nome do professor 2
-
-  strcpy(disciplina[1].nome, nome6); // nome da matéria
-  disciplina[1].codigo = 1;
-  disciplina[1].semestre = 1;
-  strcpy(disciplina[1].professor, nome2); // nome do professor 2
-
   while (true) {
     system("clear");
     printf("Bem vindo ao Projeto Escola. Digite uma das seguintes opções:");
@@ -80,130 +36,8 @@ int main() {
           excluirPessoas(alunos);
         }
         
-        // Atualizar algum aluno
         else if (escolhaAluno == 3) {
-          if (listaPessoas(alunos)) {
-            int alunoEscolhido;
-            printf("\n\nQual aluno deseja atualizar? (selecione o id): ");
-            scanf("%d", &alunoEscolhido);
-            getchar();
-
-            if (alunos[alunoEscolhido - 1].matricula == 0) {
-              printf("\n\nEsse aluno não existe \n(Aperte Enter para continuar)\n\n");
-              getchar();
-            } 
-            else {
-              system("clear");
-              printf("CADASTRO DE ALUNO\n");
-              const char *opcoes[] = {
-                  "Mudar a matrícula",
-                  "Mudar o nome",
-                  "Mudar o gênero",
-                  "Mudar a data de nascimento",
-                  "Mudar o CPF"
-              };
-              int escolhaAtualizarAluno = listarOpcoes(opcoes, 5);
-
-              // Escolher uma nova matricula para um aluno escolhido
-              if (escolhaAtualizarAluno == 1) {
-                while (true) {
-                  int jaTemMatricula = false;
-                  system("clear");
-                  printf("\n\nInforme a nova matricula do aluno?: ");
-                  scanf("%d", &alunos[alunoEscolhido - 1].matricula);
-                  getchar();
-
-                  for (int j = usuariosQtd - 1; j >= 0; j--) {
-                    if (alunos[j].matricula == alunos[alunoEscolhido - 1].matricula && alunoEscolhido - 1 != j)
-                      jaTemMatricula = true;
-
-                    else
-                      continue;
-                  }
-
-                  if (jaTemMatricula && alunos[alunoEscolhido - 1].matricula != 0) {
-                    printf("\n\nJá existe um aluno com essa matricula. Tente novamente. \n(Aperte Enter para continuar)\n\n");
-                    getchar();
-                    continue;
-                  }
-
-                  if (alunos[alunoEscolhido - 1].matricula > 0)
-                    break;
-
-                  printf("Matricula inválida. Tente novamente.\n(Aperte Enter para continuar)\n\n");
-                  getchar();
-                }
-              }
-              // Escolher um novo nome para um aluno escolhido
-              else if (escolhaAtualizarAluno == 2) {
-                while (true) {
-                  system("clear");
-                  printf("\n\nInforme o novo nome: ");
-                  fgets(alunos[alunoEscolhido - 1].nome, 30, stdin);
-
-                  // Capitalização do Aluno
-                  for (int j = 97; j < 122; j++) {
-                    if (alunos[alunoEscolhido - 1].nome[0] == j) {
-                      alunos[alunoEscolhido - 1].nome[0] = alunos[alunoEscolhido - 1].nome[0] - 32;
-                      break;
-                    }
-                  }
-
-                  if (strlen(alunos[alunoEscolhido - 1].nome) > 1)
-                    break;
-
-                  printf("Nome inválido. Tente novamente.\n(Aperte Enter para continuar)\n\n");
-                  getchar();
-                }
-              }
-              // Escolher um novo genero para um aluno escolhido
-              else if (escolhaAtualizarAluno == 3) {
-                while (true) {
-                  system("clear");
-                  printf("\n\nEscolha o novo gênero: ");
-                  alunos[alunoEscolhido - 1].sexo = getchar();
-
-                  if (alunos[alunoEscolhido - 1].sexo == 'M' ||
-                      alunos[alunoEscolhido - 1].sexo == 'F' || 
-                      alunos[alunoEscolhido - 1].sexo == 'N')
-                    break;
-
-                  printf("Gênero inválido. Tente novamente.\n(Aperte Enter para continuar)\n\n");
-                  getchar();
-                }
-              }
-              // Escolher uma nova data de nascimento para um aluno escolhido
-              else if (escolhaAtualizarAluno == 4) {
-                while (true) {
-                  system("clear");
-                  printf("\n\nEscolha a nova data de nascimento: ");
-                  scanf("%d", &alunos[alunoEscolhido - 1].dtNasc);
-                  getchar();
-
-                  if (alunos[alunoEscolhido - 1].dtNasc > 9999999 && alunos[alunoEscolhido - 1].dtNasc < 99999999)
-                    break;
-
-                  printf("Data de nascimento inválida. Tente novamente.\n(Aperte Enter para continuar)\n\n");
-                  getchar();
-                }
-              }
-              // Escolher um novo cpf para um aluno escolhido
-              else if (escolhaAtualizarAluno == 5) {
-                while (true) {
-                  system("clear");
-                  printf("\n\nEscolha um novo cpf: ");
-                  scanf("%ld", &alunos[alunoEscolhido - 1].cpf);
-                  getchar();
-
-                  if (alunos[alunoEscolhido - 1].cpf > 9999999999 && alunos[alunoEscolhido - 1].cpf < 99999999999)
-                    break;
-
-                  printf("CPF inválido. Tente novamente.\n(Aperte Enter para continuar)\n\n");
-                  getchar();
-                }
-              }
-            }
-          }
+          atualizarPessoas(alunos);
         } 
         else
           break;
@@ -215,145 +49,24 @@ int main() {
 
         system("clear");
         printf("CADASTRO DE PROFESSOR\n");
+        
         const char *opcoes[] = {
           "Incluir um novo professor",
           "Excluir um professor",
           "Atualizar algum professor"
         };
+        
         int escolhaProf = listarOpcoes(opcoes, 3);
 
-        if (escolhaProf == 1) {
+        if (escolhaProf == 1) 
           registrarPessoas(prof);
-        }
 
-        else if (escolhaProf == 2) {
+        else if (escolhaProf == 2)
           excluirPessoas(prof);
-        }
+
+        else if (escolhaProf == 3)
+          atualizarPessoas(prof);
         
-        // Atualizar algum professor
-        else if (escolhaProf == 3) {
-          if (listaPessoas(prof)) {
-            int profEscolhido;
-            printf("\n\nQual professor deseja atualizar? (selecione o id): ");
-            scanf("%d", &profEscolhido);
-            getchar();
-
-            if (prof[profEscolhido - 1].matricula == 0) {
-              printf("\n\nEsse professor não existe \n(Aperte Enter para continuar)\n\n");
-              getchar();
-            } 
-            else {
-
-              system("clear");
-              printf("Que mudança deseja fazer\n");
-              const char *opcoes[] = {
-                "Mudar a matrícula",
-                "Mudar o nome",
-                "Mudar o gênero",
-                "Mudar a data de nascimento",
-                "Mudar o CPF"
-              };
-              int escolhaAtualizarProf = listarOpcoes(opcoes, 5);
-
-              // Escolher uma nova matricula para um professor escolhido
-              if (escolhaAtualizarProf == 1) {
-                while (true) {
-                  int jaTemMatricula = false;
-                  system("clear");
-                  printf("\n\nInforme a nova matricula do professor?: ");
-                  scanf("%d", &prof[profEscolhido - 1].matricula);
-                  getchar();
-
-                  for (int j = usuariosQtd - 1; j >= 0; j--) {
-                    if (prof[j].matricula == prof[profEscolhido - 1].matricula && profEscolhido - 1 != j)
-                      jaTemMatricula = true;
-
-                    else
-                      continue;
-                  }
-
-                  if (jaTemMatricula && prof[profEscolhido - 1].matricula != 0) {
-                    printf("\n\nJá existe um professor com essa matricula. Tente novamente. \n(Aperte Enter para continuar)\n\n");
-                    getchar();
-                    continue;
-                  }
-
-                  if (prof[profEscolhido - 1].matricula > 0)
-                    break;
-
-                  printf("Matricula inválida. Tente novamente.\n(Aperte Enter para continuar)\n\n");
-                  getchar();
-                }
-              }
-              // Escolher um novo nome para um professor escolhido
-              else if (escolhaAtualizarProf == 2) {
-                while (true) {
-                  system("clear");
-                  printf("\n\nInforme o novo nome: ");
-                  fgets(prof[profEscolhido - 1].nome, 30, stdin);
-
-                  // Capitalização do Professor
-                  for (int j = 97; j < 122; j++) {
-                    if (prof[profEscolhido - 1].nome[0] == j) {
-                      prof[profEscolhido - 1].nome[0] = prof[profEscolhido - 1].nome[0] - 32;
-                      break;
-                    }
-                  }
-
-                  if (strlen(prof[profEscolhido - 1].nome) > 1)
-                    break;
-
-                  printf("Nome inválido. Tente novamente.\n(Aperte Enter para continuar)\n\n");
-                  getchar();
-                }
-              }
-              // Escolher um novo genero para um professor escolhido
-              else if (escolhaAtualizarProf == 3) {
-                while (true) {
-                  system("clear");
-                  printf("\n\nEscolha o novo gênero: ");
-                  prof[profEscolhido - 1].sexo = getchar();
-
-                  if (prof[profEscolhido - 1].sexo == 'M' || prof[profEscolhido - 1].sexo == 'F' || prof[profEscolhido - 1].sexo == 'N')
-                    break;
-
-                  printf("Gênero inválido. Tente novamente.\n(Aperte Enter para continuar)\n\n");
-                  getchar();
-                }
-              }
-              // Escolher uma nova data de nascimento para um professor escolhido
-              else if (escolhaAtualizarProf == 4) {
-                while (true) {
-                  system("clear");
-                  printf("\n\nEscolha a nova data de nascimento: ");
-                  scanf("%d", &prof[profEscolhido - 1].dtNasc);
-                  getchar();
-
-                  if (prof[profEscolhido - 1].dtNasc > 9999999 && prof[profEscolhido - 1].dtNasc < 99999999)
-                    break;
-
-                  printf("Data de nascimento inválida. Tente novamente.\n(Aperte Enter para continuar)\n\n");
-                  getchar();
-                }
-              }
-              // Escolher um novo cpf para um professor escolhido
-              else if (escolhaAtualizarProf == 5) {
-                while (true) {
-                  system("clear");
-                  printf("\n\nEscolha um novo cpf: ");
-                  scanf("%ld", &prof[profEscolhido - 1].cpf);
-                  getchar();
-
-                  if (prof[profEscolhido - 1].cpf > 9999999999 && prof[profEscolhido - 1].cpf < 99999999999)
-                    break;
-
-                  printf("CPF inválido. Tente novamente.\n(Aperte Enter para continuar)\n\n");
-                  getchar();
-                }
-              }
-            }
-          }
-        } 
         else
           break;
       }
@@ -852,7 +565,7 @@ int main() {
 
         // Listar todos os alunos
         if (escolhaRelatorio == 1) {
-          if (listaPessoas(alunos)) {
+          if (listarPessoas(alunos)) {
             printf("\n\nAlunos listados com sucesso\n(Aperte Enter para continuar)\n\n");
             getchar();
           } else {
@@ -862,7 +575,7 @@ int main() {
         }
         // Listar todos os professores
         else if (escolhaRelatorio == 2) {
-          if (listaPessoas(prof)) {
+          if (listarPessoas(prof)) {
             printf("\n\nAlunos listados com sucesso\n(Aperte Enter para continuar)\n\n");
             getchar();
           } else {
@@ -956,7 +669,7 @@ int main() {
         }
         // Listar alunos por gênero
         else if (escolhaRelatorio == 5) {
-          if (listaPessoas(alunos)) {
+          if (listarPessoas(alunos)) {
             printf("\nAlunos do gênero Masculino");
             for (int i = usuariosQtd - 1; i >= 0; i--) {
               if (alunos[i].matricula == 0)
@@ -1005,7 +718,7 @@ int main() {
         }
         // Listar professores por gênero
         else if (escolhaRelatorio == 8) {
-          if (listaPessoas(prof)) {
+          if (listarPessoas(prof)) {
             printf("\nProfessores do gênero Masculino");
             for (int i = usuariosQtd - 1; i >= 0; i--) {
               if (prof[i].matricula == 0)

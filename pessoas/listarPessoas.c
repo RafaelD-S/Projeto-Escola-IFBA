@@ -1,6 +1,6 @@
-#include "school.h"
+#include "../school.h"
 
-int listaPessoas(rgInfoPessoa *pessoasLista) {
+int listarPessoas(rgInfoPessoa *pessoasLista) {
 
   int temPessoa = false;
   system("clear");

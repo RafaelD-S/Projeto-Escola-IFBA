@@ -25,9 +25,10 @@ struct procedimentoMatricula {
   int alunos[usuariosQtd];
 };
 
-int listaPessoas(rgInfoPessoa *pessoasLista);
+int listarPessoas(rgInfoPessoa *pessoasLista);
 int listarOpcoes(const char **opcao, int opcaoQtd);
 void registrarPessoas(rgInfoPessoa *pessoas);
 void excluirPessoas(rgInfoPessoa *pessoas);
+void atualizarPessoas(rgInfoPessoa *pessoas);
 
 #endif

@@ -1,7 +1,7 @@
-#include "school.h"
+#include "../school.h"
 
 void excluirPessoas(rgInfoPessoa *pessoas) {
-  if (listaPessoas(pessoas)) {
+  if (listarPessoas(pessoas)) {
     int pessoaExcluida;
     printf("\nQual aluno você gostaria de remover? (selecione o id): ");
     scanf("%d", &pessoaExcluida);

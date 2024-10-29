@@ -1,4 +1,4 @@
-#include "school.h"
+#include "../school.h"
 
 int listarOpcoes(const char **opcao, int opcaoQtd) {
   int escolha = 0;
