@@ -1,5 +1,5 @@
 #include "../school.h"
-#include "./atualizacoes/atualizacesModulos.h"
+#include "./atualizacoes/atualizacoesModulos.h"
 
 void atualizarPessoas(rgInfoPessoa *pessoas) {
   if (listarPessoas(pessoas)) {

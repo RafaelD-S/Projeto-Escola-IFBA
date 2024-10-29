@@ -1,4 +1,4 @@
-#include "./atualizacesModulos.h"
+#include "./atualizacoesModulos.h"
 
 void atualizarMatricula(rgInfoPessoa *pessoa, int pessoaEscolhida) {
   while (true) {

@@ -1,4 +1,4 @@
-#include "./atualizacesModulos.h"
+#include "./atualizacoesModulos.h"
 
 void atualizarNome(rgInfoPessoa *pessoa, int pessoaEscolhida) {
   while (true) {

@@ -1,4 +1,4 @@
-#include "./atualizacesModulos.h"
+#include "./atualizacoesModulos.h"
 
 void atualizarCpf(rgInfoPessoa *pessoa, int pessoaEscolhida) {
   while (true) {
