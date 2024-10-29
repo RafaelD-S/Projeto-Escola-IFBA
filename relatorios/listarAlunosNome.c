@@ -43,12 +43,11 @@ void listarAlunosNome(rgInfoPessoa *alunos) {
 
     for (int i = 0; i < usuariosQtd; i++) {
       if (alunosNome[i][0] != '\0') {
-        printf("- ");
+        printf("%d. ", i + 1);
         puts(alunosNome[i]);
       }
     }
+    printf("\n\n(Aperte Enter para continuar)");
+    getchar();
   }
-  printf("\n\n(Aperte Enter para continuar)");
-  getchar();
-
 }

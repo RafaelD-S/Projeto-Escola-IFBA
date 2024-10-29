@@ -43,11 +43,11 @@ void listarProfNome(rgInfoPessoa *prof) {
 
     for (int i = 0; i < usuariosQtd; i++) {
       if (profNome[i][0] != '\0') {
-        printf("- ");
+        printf("%d. ", i + 1);
         puts(profNome[i]);
       }
     }
+    printf("\n\n(Aperte Enter para continuar)");
+    getchar();
   }
-  printf("\n\n(Aperte Enter para continuar)");
-  getchar();
 }
