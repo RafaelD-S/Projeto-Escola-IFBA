@@ -89,6 +89,9 @@ void adcionarDisciplina(procedimentoMatricula *disciplina, rgInfoPessoa *prof) {
     if (!temProf) {
       printf("\n\nNÃO HÁ PROFESSORES PARA SELECIONAR \n(Aperte Enter para continuar)\n\n");
       getchar();
+      
+      disciplina[i].codigo = 0;
+      break;  
     } 
     else {
       int profSelecionado;
