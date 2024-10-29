@@ -158,7 +158,7 @@ int main() {
           listarProfNome(prof);
 
         else if (escolhaRelatorio == 10) 
-          listarProfNasc();
+          listarProfNasc(prof);
 
         else if (escolhaRelatorio == 11) 
           listarAniversariantes(alunos, prof);
