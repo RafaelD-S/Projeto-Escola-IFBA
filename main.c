@@ -146,7 +146,7 @@ int main() {
           listarAlunosGenero(alunos);
 
         else if (escolhaRelatorio == 6) 
-          listarAlunosNome();
+          listarAlunosNome(alunos);
 
         else if (escolhaRelatorio == 7) 
           listarAlunosNasc();
