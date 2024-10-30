@@ -5,7 +5,7 @@ void atualizarMatricula(rgInfoPessoa *pessoa, int pessoaEscolhida) {
     int jaTemMatricula = false;
     system("clear");
     printf("\n\nInforme a nova matricula: ");
-    scanf("%d", &pessoa[pessoaEscolhida - 1].matricula);
+    scanf("%ld", &pessoa[pessoaEscolhida - 1].matricula);
     getchar();
 
     for (int j = usuariosQtd - 1; j >= 0; j--) {

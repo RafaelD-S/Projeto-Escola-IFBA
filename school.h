@@ -11,7 +11,7 @@
 #define usuariosQtd 100
 
 typedef struct {
-  int matricula;
+  long int matricula;
   char nome[nomeTamanho];
   char sexo;
   int dtNasc;

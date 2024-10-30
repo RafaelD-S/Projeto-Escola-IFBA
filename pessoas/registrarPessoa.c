@@ -12,7 +12,7 @@ void registrarPessoas(rgInfoPessoa *pessoas) {
     int jaTemMatricula = false;
     system("clear");
     printf("\n\nInforme a matrícula: ");
-    scanf("%d", &pessoas[i].matricula);
+    scanf("%ld", &pessoas[i].matricula);
     getchar();
 
     for (int j = usuariosQtd - 1; j >= 0; j--) {
