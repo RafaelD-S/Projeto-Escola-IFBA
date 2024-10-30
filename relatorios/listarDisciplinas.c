@@ -10,7 +10,7 @@ void listarDisciplinas(procedimentoMatricula *disciplina) {
     else {
       temDisciplina = true;
       puts(disciplina[i].nome);
-      printf("- Código: %d\n- Semestre: %d\n- Professor:", disciplina[i].codigo, disciplina[i].semestre);
+      printf("- Código: %d\n- Semestre: %d\n- Professor: ", disciplina[i].codigo, disciplina[i].semestre);
       puts(disciplina[i].professor);
       printf("\n\n");
     }
@@ -24,5 +24,3 @@ void listarDisciplinas(procedimentoMatricula *disciplina) {
   printf("Disciplinas listadas com sucessos\n(Aperte Enter para continuar)\n\n");
   getchar();
 }
-
-
