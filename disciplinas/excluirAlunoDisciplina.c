@@ -67,7 +67,7 @@ void excluirAlunoDisciplina(procedimentoMatricula *disciplina, rgInfoPessoa *alu
           }
 
         // reorganização da lista
-        for (int j = 0; j < usuariosQtd - 1; j++) {
+        for (int j = alunoSelecionado - 1; j < usuariosQtd - 1; j++) {
           disciplina[disciplinaEscolhida - 1].alunos[j] = disciplina[disciplinaEscolhida - 1].alunos[j + 1];
         }
           

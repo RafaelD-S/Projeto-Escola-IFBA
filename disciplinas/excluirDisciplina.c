@@ -34,7 +34,7 @@ void excluirDisciplina(procedimentoMatricula *disciplina) {
       getchar();
 
       // reorganização da lista
-      for (int j = 0; j < disciplinaQtd - 1; j++) {
+      for (int j = disciplinaExcluida - 1; j < disciplinaQtd - 1; j++) {
         strcpy(disciplina[j].nome, disciplina[j + 1].nome);
         disciplina[j].codigo = disciplina[j + 1].codigo;
         disciplina[j].semestre = disciplina[j + 1].semestre;

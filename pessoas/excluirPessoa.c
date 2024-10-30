@@ -16,7 +16,7 @@ void excluirPessoas(rgInfoPessoa *pessoas) {
       getchar();
 
       // reorganização da lista
-      for (int j = 0; j < usuariosQtd - 1; j++) {
+      for (int j = pessoaExcluida - 1; j < usuariosQtd - 1; j++) {
         pessoas[j].matricula = pessoas[j + 1].matricula;
         strcpy(pessoas[j].nome, pessoas[j + 1].nome);
         pessoas[j].sexo = pessoas[j + 1].sexo;
