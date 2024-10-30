@@ -1,6 +1,6 @@
 #include "relatorios.h"
 
-void listarDisciplinasQuarentaVagas(procedimentoMatricula *disciplina) {
+void listarDisciplinasQuarentaVagas(procedimentoMatricula *disciplinas) {
   int temDisciplina = false;
   system("clear");
   for (int i = disciplinaQtd - 1; i >= 0; i--) {

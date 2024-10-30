@@ -12,7 +12,7 @@ int main() {
         "Cadastro de Alunos",
         "Cadastro de Professores",
         "Cadastro de Disciplinas",
-        "Relatório"
+        "Relatórios"
     };
     int escolha = listarOpcoes(opcoes, 4);
 
@@ -87,7 +87,7 @@ int main() {
         int escolhaDisciplina = listarOpcoes(opcoes, 5);
         
         if (escolhaDisciplina == 1) 
-          adcionarDisciplina(disciplina, prof);
+          adicionarDisciplina(disciplina, prof);
 
         else if (escolhaDisciplina == 2) 
           excluirDisciplina(disciplina);   
@@ -112,20 +112,20 @@ int main() {
         system("clear");
         printf("\nRELATÓRIOS");
         const char *opcoesRelatorio[] = {
-            "Listar todos os alunos",                          // Rafael X
-            "Listar todos os professores",                     // Rafael X
-            "Listar todas as disciplinas",                     // Luana X
-            "Listar uma disciplina com detalhes",              // Luana X
-            "Listar alunos por gênero",                        // Rafael X
-            "Listar alunos ordenados por nome",                // Rafael
-            "Listar alunos ordenados por data de nascimento",  // Rafael
-            "Listar professores por gênero",                   // Rafael X
-            "Listar professores ordenados por nome",           // Rafael
-            "Listar professores ordenados por data de nascimento", // Rafael
-            "Listar aniversariantes do mês",                   // Luana
-            "Pesquisar pessoas",                               // Rafael
-            "Listar alunos matriculados em menos de 3 disciplinas", // Luana
-            "Listar disciplinas que extrapolam 40 vagas"       // Luana
+            "Listar todos os alunos",
+            "Listar todos os professores",
+            "Listar todas as disciplinas",
+            "Listar uma disciplina com detalhes",
+            "Listar alunos por gênero",
+            "Listar alunos ordenados por nome",
+            "Listar alunos ordenados por data de nascimento",
+            "Listar professores por gênero",
+            "Listar professores ordenados por nome",
+            "Listar professores ordenados por data de nascimento",
+            "Listar aniversariantes do mês",
+            "Pesquisar pessoas",
+            "Listar alunos matriculados em menos de 3 disciplinas",
+            "Listar disciplinas que extrapolam 40 vagas"
         };
         int escolhaRelatorio = listarOpcoes(opcoesRelatorio, 14);
 

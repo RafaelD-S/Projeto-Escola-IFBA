@@ -15,7 +15,7 @@ void atualizarPessoas(rgInfoPessoa *pessoas) {
       
     else {
       system("clear");
-      printf("ATUALIZAR ALUNO");
+      printf("ATUALIZAR PESSOA");
       const char *opcoes[] = {
           "Mudar a matrícula",
           "Mudar o nome",
@@ -23,21 +23,21 @@ void atualizarPessoas(rgInfoPessoa *pessoas) {
           "Mudar a data de nascimento",
           "Mudar o CPF"
       };
-      int escolhaAtualizarAluno = listarOpcoes(opcoes, 5);
+      int escolhaAtualizarPessoa = listarOpcoes(opcoes, 5);
 
-      if (escolhaAtualizarAluno == 1) {
+      if (escolhaAtualizarPessoa == 1) {
         atualizarMatricula(pessoas, pessoaEscolhida);
       }
-      else if (escolhaAtualizarAluno == 2) {
+      else if (escolhaAtualizarPessoa == 2) {
         atualizarNome(pessoas, pessoaEscolhida);
       }
-      else if (escolhaAtualizarAluno == 3) {
+      else if (escolhaAtualizarPessoa == 3) {
         atualizarGenero(pessoas, pessoaEscolhida);
       }
-      else if (escolhaAtualizarAluno == 4) {
+      else if (escolhaAtualizarPessoa == 4) {
         atualizarDataDeNascimento(pessoas, pessoaEscolhida);
       }
-      else if (escolhaAtualizarAluno == 5) {
+      else if (escolhaAtualizarPessoa == 5) {
         atualizarCpf(pessoas, pessoaEscolhida);
       }
     }

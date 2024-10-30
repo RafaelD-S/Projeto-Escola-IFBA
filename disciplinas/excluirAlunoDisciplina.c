@@ -20,7 +20,7 @@ void excluirAlunoDisciplina(procedimentoMatricula *disciplina, rgInfoPessoa *alu
   } 
   else {
     int disciplinaEscolhida;
-    printf("\n\nQual disciplina deseja remover o cadastro do aluno? (selecione o id): ");
+    printf("\n\nDe qual disciplina deseja remover o cadastro do aluno? (selecione o id): ");
     scanf("%d", &disciplinaEscolhida);
     getchar();
 

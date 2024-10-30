@@ -35,7 +35,7 @@ void atualizarDisciplina(procedimentoMatricula *disciplina, rgInfoPessoa *prof) 
         "Mudar o nome",
         "Mudar o código",
         "Mudar o semestre",
-        "Mudar o nome do professor",
+        "Mudar o professor da disciplina",
       };
       int escolhaAtualizarDisciplina = listarOpcoes(opcoes, 4);;
 

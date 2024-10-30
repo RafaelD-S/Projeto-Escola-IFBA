@@ -23,7 +23,7 @@ void pesquisarPessoas(rgInfoPessoa *alunos, rgInfoPessoa *prof) {
 
     while (true) {
       system("clear");
-      printf("\n\nBuscar por (min 3 letras): ");
+      printf("\n\nBuscar por [mín. 3 letras]: ");
       fgets(escolhaNome, 30, stdin);
 
       for (int j = 97; j < 122; j++) {

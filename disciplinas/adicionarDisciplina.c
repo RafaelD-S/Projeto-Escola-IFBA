@@ -1,6 +1,6 @@
 #include "../school.h"
 
-void adcionarDisciplina(procedimentoMatricula *disciplina, rgInfoPessoa *prof) {
+void adicionarDisciplina(procedimentoMatricula *disciplina, rgInfoPessoa *prof) {
   int i = 0;
   for (; i <= disciplinaQtd; i++) {
     if (disciplina[i].codigo == 0)
