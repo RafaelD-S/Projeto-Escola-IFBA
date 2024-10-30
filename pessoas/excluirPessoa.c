@@ -12,10 +12,12 @@ void excluirPessoas(rgInfoPessoa *pessoas, procedimentoMatricula *disciplina) {
       getchar();
     } else {
       // excluir a pessoa na disciplina
-        for (int i = 0; i < disciplinaQtd; i++) {
+      for (int i = 0; i < disciplinaQtd; i++) {
           for (int j = 0; j < usuariosQtd; j++) {
             if (disciplina[i].alunos[j] == pessoas[pessoaExcluida - 1].matricula) {
-              disciplina[i].alunos[j] = 0;
+              for (int k = j; k < usuariosQtd - 1; k++) {
+                disciplina[i].alunos[k] = disciplina[i].alunos[k + 1];
+              }
               break;
             }
             if (strcmp(disciplina[i].professor, pessoas[pessoaExcluida - 1].nome) == 0) {
@@ -26,6 +28,7 @@ void excluirPessoas(rgInfoPessoa *pessoas, procedimentoMatricula *disciplina) {
             }
           }
         }
+
       
       pessoas[pessoaExcluida - 1].matricula = 0;
       printf("\n\nPessoa excluída com sucesso\n(Aperte Enter para continuar)\n\n");
@@ -39,7 +42,6 @@ void excluirPessoas(rgInfoPessoa *pessoas, procedimentoMatricula *disciplina) {
         pessoas[j].dtNasc = pessoas[j + 1].dtNasc;
         pessoas[j].cpf = pessoas[j + 1].cpf;
       }
-
     }
   } else {
     printf("Não há pessoas disponíveis.\n(Aperte Enter para continuar)\n\n");
