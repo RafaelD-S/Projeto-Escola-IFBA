@@ -1,6 +1,6 @@
 #include "relatorios.h"
 
-void listarMenosQueTresDisciplinas(procedimentoMatricula *disciplinas, rgInfoPessoa *alunos) {
+void listarMenosQueTresDisciplinas(procedimentoMatricula *disciplina, rgInfoPessoa *alunos) {
   system("clear");
   int temDisciplina = false;
   for (int i = 0; i < disciplinaQtd; i++) {

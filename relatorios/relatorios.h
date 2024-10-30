@@ -14,8 +14,8 @@ void listarProfNome(rgInfoPessoa *prof);
 
 void listarAniversariantes(rgInfoPessoa *alunos, rgInfoPessoa *prof);
 void pesquisarPessoas(rgInfoPessoa *alunos, rgInfoPessoa *prof);
-void listarMenosQueTresDisciplinas(procedimentoMatricula *disciplinas, rgInfoPessoa *alunos);
-void listarDisciplinasQuarentaVagas(procedimentoMatricula *disciplinas);
+void listarMenosQueTresDisciplinas(procedimentoMatricula *disciplina, rgInfoPessoa *alunos);
+void listarDisciplinasQuarentaVagas(procedimentoMatricula *disciplina);
 
 void listarDisciplinas(procedimentoMatricula *disciplinas);
 void listarDisciplinaDetalhe(procedimentoMatricula *disciplinas, rgInfoPessoa *alunos);

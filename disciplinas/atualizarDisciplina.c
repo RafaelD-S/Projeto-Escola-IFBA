@@ -129,7 +129,7 @@ void atualizarDisciplina(procedimentoMatricula *disciplina, rgInfoPessoa *prof) 
             getchar();
 
 
-            disciplina[i].codigo = 0;
+            disciplina[disciplinaEscolhida - 1].codigo = 0;
             break;  
           } 
           else {
