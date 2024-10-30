@@ -88,7 +88,7 @@ void registrarPessoas(rgInfoPessoa *pessoas) {
     scanf("%ld", &pessoas[i].cpf);
     getchar();
 
-    if (pessoas[i].cpf > 9999999999 && pessoas[i].cpf < 99999999999)
+    if (pessoas[i].cpf > 1111111111 && pessoas[i].cpf < 99999999999)
       break;
 
     printf("CPF inválido. Tente novamente.\n(Aperte Enter para continuar)\n\n");
