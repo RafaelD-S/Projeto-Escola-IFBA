@@ -24,7 +24,7 @@ void listarDisciplinaDetalhe(procedimentoMatricula *disciplina, rgInfoPessoa *al
     scanf("%d", &disciplinaEscolhida);
     getchar();
 
-    if (disciplina[disciplinaEscolhida - 1].codigo == 0 || disciplinaEscolhida == 0) {
+    if (disciplina[disciplinaEscolhida - 1].codigo == 0 || disciplinaEscolhida == 0 || disciplinaEscolhida >= disciplinaQtd) {
       printf("\n\nEssa disciplina não existe\n(Aperte Enter para continuar)\n\n");
       getchar();
     } 
