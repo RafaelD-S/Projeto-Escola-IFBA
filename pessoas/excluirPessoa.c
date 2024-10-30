@@ -14,6 +14,16 @@ void excluirPessoas(rgInfoPessoa *pessoas) {
       pessoas[pessoaExcluida - 1].matricula = 0;
       printf("\n\nPessoa excluída com sucesso\n(Aperte Enter para continuar)\n\n");
       getchar();
+
+      // reorganização da lista
+      for (int j = 0; j < usuariosQtd - 1; j++) {
+        pessoas[j].matricula = pessoas[j + 1].matricula;
+        strcpy(pessoas[j].nome, pessoas[j + 1].nome);
+        pessoas[j].sexo = pessoas[j + 1].sexo;
+        pessoas[j].dtNasc = pessoas[j + 1].dtNasc;
+        pessoas[j].cpf = pessoas[j + 1].cpf;
+      }
+
     }
   } else {
     printf("Não há pessoas disponíveis.\n(Aperte Enter para continuar)\n\n");

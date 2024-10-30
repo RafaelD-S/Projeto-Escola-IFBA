@@ -65,6 +65,12 @@ void excluirAlunoDisciplina(procedimentoMatricula *disciplina, rgInfoPessoa *alu
           for (int i = 0; i < nomeTamanho; i++) {
             disciplina[disciplinaEscolhida - 1].alunos[alunoSelecionado - 1] = 0;
           }
+
+        // reorganização da lista
+        for (int j = 0; j < usuariosQtd - 1; j++) {
+          disciplina[disciplinaEscolhida - 1].alunos[j] = disciplina[disciplinaEscolhida - 1].alunos[j + 1];
+        }
+          
           printf("\n\nCadastro excluído com sucesso\n(Aperte Enter para continuar)\n\n");
           getchar();
         }
