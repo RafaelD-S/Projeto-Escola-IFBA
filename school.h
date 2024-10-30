@@ -29,7 +29,7 @@ typedef struct {
 int listarPessoas(rgInfoPessoa *pessoasLista);
 int listarOpcoes(const char **opcao, int opcaoQtd);
 void registrarPessoas(rgInfoPessoa *pessoas);
-void excluirPessoas(rgInfoPessoa *pessoas);
+void excluirPessoas(rgInfoPessoa *pessoas, procedimentoMatricula *disciplina);
 void atualizarPessoas(rgInfoPessoa *pessoas);
 void adicionarDisciplina(procedimentoMatricula *disciplina, rgInfoPessoa *prof);
 void excluirDisciplina(procedimentoMatricula *disciplina);

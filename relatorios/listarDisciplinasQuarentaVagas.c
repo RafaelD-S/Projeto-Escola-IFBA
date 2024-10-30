@@ -30,7 +30,10 @@ void listarDisciplinasQuarentaVagas(procedimentoMatricula *disciplina) {
         disciplinaCheia = true;
         puts(disciplina[i].nome);
         printf("- Professor: ");
-        puts(disciplina[i].professor);
+        if (disciplina[i].professor[0] != '\0')
+          puts(disciplina[i].professor);
+        else
+          printf("Não há professor cadastrado\n");
         printf("- Quantidade de Alunos: %d", alunos);
         printf("\n\n");
       }

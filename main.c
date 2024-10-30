@@ -32,7 +32,7 @@ int main() {
           registrarPessoas(alunos);
           
         else if (escolhaAluno == 2) 
-          excluirPessoas(alunos);
+          excluirPessoas(alunos, disciplina);
         
         else if (escolhaAluno == 3) 
           atualizarPessoas(alunos);
@@ -61,7 +61,7 @@ int main() {
           registrarPessoas(prof);
 
         else if (escolhaProf == 2)
-          excluirPessoas(prof);
+          excluirPessoas(prof, disciplina);
 
         else if (escolhaProf == 3)
           atualizarPessoas(prof);

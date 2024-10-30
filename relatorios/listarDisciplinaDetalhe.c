@@ -32,7 +32,10 @@ void listarDisciplinaDetalhe(procedimentoMatricula *disciplina, rgInfoPessoa *al
       system("clear");
       puts(disciplina[disciplinaEscolhida - 1].nome);
       printf("- Código: %d\n- Semestre: %d\n- Professor: ", disciplina[disciplinaEscolhida - 1].codigo, disciplina[disciplinaEscolhida - 1].semestre);
-      puts(disciplina[disciplinaEscolhida - 1].professor);
+      if (disciplina[disciplinaEscolhida - 1].professor[0] != '\0')  
+        puts(disciplina[disciplinaEscolhida - 1].professor);
+      else
+        printf("Não há professor cadastrado\n");
 
       if (disciplina[disciplinaEscolhida - 1].alunos[0] != 0) {
         printf("- Alunos Cadastrados na Disciplina: \n");
@@ -58,5 +61,3 @@ void listarDisciplinaDetalhe(procedimentoMatricula *disciplina, rgInfoPessoa *al
     }
   }
 }
-
-

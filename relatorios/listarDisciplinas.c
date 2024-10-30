@@ -11,7 +11,10 @@ void listarDisciplinas(procedimentoMatricula *disciplina) {
       temDisciplina = true;
       puts(disciplina[i].nome);
       printf("- Código: %d\n- Semestre: %d\n- Professor: ", disciplina[i].codigo, disciplina[i].semestre);
-      puts(disciplina[i].professor);
+      if (disciplina[i].professor[0] != '\0')
+        puts(disciplina[i].professor);
+      else
+        printf("Não há professor cadastrado");
       printf("\n\n");
     }
   }
