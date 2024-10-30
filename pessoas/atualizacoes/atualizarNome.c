@@ -4,7 +4,7 @@ void atualizarNome(rgInfoPessoa *pessoa, int pessoaEscolhida) {
   while (true) {
     system("clear");
     printf("\n\nInforme o novo nome: ");
-    fgets(pessoa[pessoaEscolhida - 1].nome, 30, stdin);
+    fgets(pessoa[pessoaEscolhida - 1].nome, nomeTamanho, stdin);
 
     // Capitalização do Aluno
     for (int j = 97; j < 122; j++) {

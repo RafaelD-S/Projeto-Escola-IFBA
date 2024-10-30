@@ -11,7 +11,7 @@ void adicionarDisciplina(procedimentoMatricula *disciplina, rgInfoPessoa *prof) 
   while (true) {
     system("clear");
     printf("\n\nQual o nome da disciplina?: ");
-    fgets(disciplina[i].nome, 30, stdin);
+    fgets(disciplina[i].nome, nomeTamanho, stdin);
 
     // Capitalização da Disciplina
     for (int j = 97; j < 122; j++) {
@@ -89,7 +89,7 @@ void adicionarDisciplina(procedimentoMatricula *disciplina, rgInfoPessoa *prof) 
     if (!temProf) {
       printf("\n\nNÃO HÁ PROFESSORES PARA SELECIONAR \n(Aperte Enter para continuar)\n\n");
       getchar();
-      
+
       disciplina[i].codigo = 0;
       break;  
     } 

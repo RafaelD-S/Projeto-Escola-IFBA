@@ -39,7 +39,7 @@ void registrarPessoas(rgInfoPessoa *pessoas) {
   while (true) {
     system("clear");
     printf("\n\nInforme o nome: ");
-    fgets(pessoas[i].nome, 30, stdin);
+    fgets(pessoas[i].nome, nomeTamanho, stdin);
 
     // Capitalização do Aluno
     for (int j = 97; j < 122; j++) {

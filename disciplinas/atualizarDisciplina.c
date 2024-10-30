@@ -44,7 +44,7 @@ void atualizarDisciplina(procedimentoMatricula *disciplina, rgInfoPessoa *prof) 
         while (true) {
           system("clear");
           printf("Informe o novo nome para a disciplina: ");
-          fgets(disciplina[disciplinaEscolhida - 1].nome, 30, stdin);
+          fgets(disciplina[disciplinaEscolhida - 1].nome, nomeTamanho, stdin);
 
           // Capitalização da Disciplina
           for (int j = 97; j < 122; j++) {
