@@ -3,15 +3,10 @@
 void atualizarGenero(rgInfoPessoa *pessoa, int pessoaEscolhida) {
   while (true) {
     system("clear");
-    printf("\n\nEscolha o novo gênero: ");
+    printf("Escolha o novo gênero: ");
     pessoa[pessoaEscolhida - 1].sexo = getchar();
 
-    if (pessoa[pessoaEscolhida - 1].sexo == 'M' ||
-        pessoa[pessoaEscolhida - 1].sexo == 'F' || 
-        pessoa[pessoaEscolhida - 1].sexo == 'N')
+    if (validarGenero(pessoa, pessoaEscolhida - 1))
       break;
-
-    printf("Gênero inválido. Tente novamente.\n(Aperte Enter para continuar)\n\n");
-    getchar();
   }
 }

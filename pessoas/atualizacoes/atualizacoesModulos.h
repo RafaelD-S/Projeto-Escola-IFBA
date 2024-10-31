@@ -1,6 +1,7 @@
 #ifndef ATUALIZACOESMODULOS_H
 #define ATUALIZACOESMODULOS_H
 #include "../../school.h"
+#include "../../utils/validadores.h"
 
 void atualizarMatricula(rgInfoPessoa *pessoa, int pessoaEscolhida);
 void atualizarNome(rgInfoPessoa *pessoa, int pessoaEscolhida);

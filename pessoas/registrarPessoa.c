@@ -1,4 +1,5 @@
 #include "../school.h"
+#include "../utils/validadores.h"
 
 void registrarPessoas(rgInfoPessoa *pessoas) {
   
@@ -11,87 +12,50 @@ void registrarPessoas(rgInfoPessoa *pessoas) {
   while (true) {
     int jaTemMatricula = false;
     system("clear");
-    printf("\n\nInforme a matrícula: ");
+    printf("Informe a matrícula: ");
     scanf("%ld", &pessoas[i].matricula);
     getchar();
 
-    for (int j = usuariosQtd - 1; j >= 0; j--) {
-      if (pessoas[j].matricula == pessoas[i].matricula && i != j)
-        jaTemMatricula = true;
-
-      else 
-        continue;
-    }
-
-    if (jaTemMatricula && pessoas[i].matricula != 0) {
-      printf("\n\nJá existe alguém com essa matricula. Tente novamente. \n(Aperte Enter para continuar)\n\n");
-      getchar();
-      continue;
-    }
-
-    if (pessoas[i].matricula > 0)
+    if (validarMatricula(pessoas, i))
       break;
-
-    printf("Matricula inválida. Tente novamente. \n(Aperte Enter para continuar)\n\n");
-    getchar();
   }
 
   while (true) {
     system("clear");
-    printf("\n\nInforme o nome: ");
+    printf("Informe o nome: ");
     fgets(pessoas[i].nome, nomeTamanho, stdin);
 
-    // Capitalização do Aluno
-    for (int j = 97; j < 122; j++) {
-      if (pessoas[i].nome[0] == j) {
-        pessoas[i].nome[0] = pessoas[i].nome[0] - 32;
-        break;
-      }
-    }
-
-    if (strlen(pessoas[i].nome) > 1)
+    if (validarNome(pessoas, i))
       break;
-
-    printf("Nome inválido. Tente novamente. \n(Aperte Enter para continuar)\n\n");
-    getchar();
   }
 
   while (true) {
     system("clear");
-    printf("\n\nInforme o gênero [M / F /  N]: ");
+    printf("Informe o gênero [M / F /  N]: ");
     pessoas[i].sexo = getchar();
 
-    if (pessoas[i].sexo == 'M' || pessoas[i].sexo == 'F' || pessoas[i].sexo == 'N')
+    if (validarGenero(pessoas, i)) {
       break;
-
-    system("clear");
-    printf("Gênero inválido. Tente novamente.\n(Aperte Enter para continuar)\n\n");
-    getchar();
+    }
   }
 
   while (true) {
     system("clear");
-    printf("\n\nInforme a data de nascimento [DDMMAAAA]: ");
+    printf("Informe a data de nascimento [DDMMAAAA]: ");
     scanf("%d", &pessoas[i].dtNasc);
     getchar();
 
-    if (pessoas[i].dtNasc > 9999999 && pessoas[i].dtNasc < 99999999)
+    if (validarDataDeNascimento(pessoas, i))
       break;
-
-    printf("Data de nascimento inválida. Tente novamente.\n(Aperte Enter para continuar)\n\n");
-    getchar();
   }
 
   while (true) {
     system("clear");
-    printf("\n\nInforme o cpf?: ");
+    printf("Informe o cpf?: ");
     scanf("%ld", &pessoas[i].cpf);
     getchar();
 
-    if (pessoas[i].cpf > 1111111111 && pessoas[i].cpf < 99999999999)
-      break;
-
-    printf("CPF inválido. Tente novamente.\n(Aperte Enter para continuar)\n\n");
-    getchar();
+  if (validarCpf(pessoas, i))
+    break;
   }
 }

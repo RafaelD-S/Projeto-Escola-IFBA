@@ -15,7 +15,7 @@ void atualizarDisciplina(procedimentoMatricula *disciplina, rgInfoPessoa *prof) 
   }
 
   if (!temDisciplina) {
-    printf("\n\nNÃO HÁ DISCIPLINAS PARA ATUALIZAR\n(Aperte Enter para continuar)\n\n");
+    printf("\nNÃO HÁ DISCIPLINAS PARA ATUALIZAR\n(Aperte Enter para continuar)\n\n");
     getchar();
   } 
   else {

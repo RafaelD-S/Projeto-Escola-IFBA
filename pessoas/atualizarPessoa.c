@@ -4,12 +4,12 @@
 void atualizarPessoas(rgInfoPessoa *pessoas) {
   if (listarPessoas(pessoas)) {
     int pessoaEscolhida;
-    printf("\n\nEscreva o id da pessoa que você deseja atualizar: ");
+    printf("Escreva o id da pessoa que você deseja atualizar: ");
     scanf("%d", &pessoaEscolhida);
     getchar();
 
     if (pessoas[pessoaEscolhida - 1].matricula == 0) {
-      printf("\n\nEssa pessoa não está registrada \n(Aperte Enter para continuar)\n\n");
+      printf("\nEssa pessoa não está registrada.\n\n(Aperte Enter para continuar)\n\n");
       getchar();
     }
       
@@ -41,5 +41,8 @@ void atualizarPessoas(rgInfoPessoa *pessoas) {
         atualizarCpf(pessoas, pessoaEscolhida);
       }
     }
+  } else {
+    printf("Não há pessoas disponíveis\n(Aperte Enter para continuar)\n\n");
+    getchar();
   }
 }
