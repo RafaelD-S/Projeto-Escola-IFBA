@@ -49,7 +49,7 @@ void listarProfNasc(rgInfoPessoa *prof) {
       }
     }
     
-    printf("\n\n(Aperte Enter para continuar)");
+    printf("\n\nOrdenados do mais velho para o mais novo\n(Aperte Enter para continuar)");
     getchar();
   }
 }

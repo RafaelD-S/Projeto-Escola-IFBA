@@ -37,6 +37,6 @@ void listarAlunosGenero(rgInfoPessoa *alunos) {
   } else {
     printf("Não há alunos disponíveis");
   }
-  printf("\n\n\n(Aperte Enter para continuar)");
+  printf("\n\n(Aperte Enter para continuar)");
   getchar();
 }

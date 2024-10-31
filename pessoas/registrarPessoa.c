@@ -34,9 +34,8 @@ void registrarPessoas(rgInfoPessoa *pessoas) {
     printf("Informe o gênero [M / F /  N]: ");
     pessoas[i].sexo = getchar();
 
-    if (validarGenero(pessoas, i)) {
+    if (validarGenero(pessoas, i)) 
       break;
-    }
   }
 
   while (true) {

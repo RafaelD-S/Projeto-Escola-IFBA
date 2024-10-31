@@ -50,7 +50,7 @@ void listarAlunosNasc(rgInfoPessoa *alunos) {
       }
     }
     
-    printf("\n\n(Aperte Enter para continuar)");
+    printf("\n\nOrdenados do mais velho para o mais novo\n(Aperte Enter para continuar)");
     getchar();
   }
 }
